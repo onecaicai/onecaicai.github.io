@@ -1,170 +1,320 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OneCai's Blogger - 不会代码。</title><meta name="author" content="OneCai"><meta name="copyright" content="OneCai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="瞎凑合……">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>OneCai&#39;s Blogger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="瞎凑合……">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OneCai&#39;s Blogger">
 <meta property="og:url" content="https://onecai.github.io/index.html">
 <meta property="og:site_name" content="OneCai&#39;s Blogger">
 <meta property="og:description" content="瞎凑合……">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://onecai.github.io/img/onecai.png">
 <meta property="article:author" content="OneCai">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://onecai.github.io/img/onecai.png"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://onecai.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
-    }
-
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        if (name && globalFn[key][name]) return
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
-    }
   
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
-
-      const theme = saveToLocal.get('theme')
-    
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
-        
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
+    <link rel="alternate" href="/atom.xml" title="OneCai's Blogger" type="application/atom+xml">
   
-    })()
-  </script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"自上次更新，文章已经过","messageNext":"天，文章内容可能已经复古。"},
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
-  copy: {
-    success: '复制成功',
-    error: '复制失败',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'null',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: true,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'OneCai\'s Blogger',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2024年11月02日 13时43分35秒'
-}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="OneCai's Blogger" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/onecai.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/top.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">OneCai's Blogger</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">OneCai's Blogger</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/24/%E6%90%9C%E9%9B%86%E4%BA%86%E4%B8%80%E4%BA%9B%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%E7%9A%84%E8%B5%84%E6%96%99/" title="搜集了一些固态电池的资料">搜集了一些固态电池的资料</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-24T12:53:37.000Z" title="发表于 2024年10月24日 20时53分37秒">2024年10月24日</time></span></div><div class="content">关于电动汽车固态电池的热度比较多，找资料再了解了解。（草稿箱） </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/17/%E4%B8%80%E5%8F%A5%E8%AF%9D%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5/" title="一句话顶一万句">一句话顶一万句</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-17T09:59:35.000Z" title="发表于 2024年10月17日 17时59分35秒">2024年10月17日</time></span></div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/10/17/HelloWord/" title="HelloWord"><img class="post-bg" src="http://slgfeaby7.hn-bkt.clouddn.com/pic/IMG_1525.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HelloWord"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/10/17/HelloWord/" title="HelloWord">HelloWord</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-17T06:54:21.000Z" title="发表于 2024年10月17日 14时54分21秒">2024年10月17日</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1/">关于自己</a></span></div><div class="content"> 这并非首次折腾个人博客了。 互联网免费产品时代说实话，已记不清具体的时间顺序，那就随意聊聊吧，权当碎碎念。 QQ空间在互联网老用户中，没折腾过QQ空间的人应该寥寥无几。那时，小伙伴们都热衷于装扮QQ空间，各种皮肤、挂件琳琅满目，从“毛坯房”逐步打造出属于自己的个性空间，还会设置一些图片、GIF 特效等。其中，QQ自带的说说功能被广泛使用，签名能同步到说说里，看着好友的评论，趣味十足。深更半夜时，自己偶尔也会写些心灵鸡汤，不过更多的是转载互联网上的口水文章。以现在的眼光看，那些文章全都是价值输出，只能让人更焦虑，没别的用，初次接触那类文章时，会觉得很有道理。当时也基本把QQ空间当成网络书签来用，晚上包夜玩游戏累了，就会花时间装扮空间，不时更新里面的内容，在文章排版上尤其耗费了不少时间，光玩花架子了。 MSN Live Space与QQ空间相比，微软的MSN更加开放。浏览器输入网址或者从MSN主页链接登录即可，它的宽屏阅读模式比QQ空间中间那一小块阅读空间舒适太多。Live Spaces功能界面简洁，无广告干扰，可设置和折腾的地方相对较多。通过简单的 HTML...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/onecai.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">OneCai</div><div class="author-info-description">瞎凑合……</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人博客，不会代码，瞎凑合。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/24/%E6%90%9C%E9%9B%86%E4%BA%86%E4%B8%80%E4%BA%9B%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%E7%9A%84%E8%B5%84%E6%96%99/" title="搜集了一些固态电池的资料">搜集了一些固态电池的资料</a><time datetime="2024-10-24T12:53:37.000Z" title="发表于 2024年10月24日 20时53分37秒">2024年10月24日</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/17/%E4%B8%80%E5%8F%A5%E8%AF%9D%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5/" title="一句话顶一万句">一句话顶一万句</a><time datetime="2024-10-17T09:59:35.000Z" title="发表于 2024年10月17日 17时59分35秒">2024年10月17日</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/17/HelloWord/" title="HelloWord"><img src="http://slgfeaby7.hn-bkt.clouddn.com/pic/IMG_1525.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HelloWord"/></a><div class="content"><a class="title" href="/2024/10/17/HelloWord/" title="HelloWord">HelloWord</a><time datetime="2024-10-17T06:54:21.000Z" title="发表于 2024年10月17日 14时54分21秒">2024年10月17日</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            
-          </div>
-          <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1/"><span class="card-category-list-name">关于自己</span><span class="card-category-list-count">1</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B2%E7%82%B9%E6%96%87%E5%AD%97/" style="font-size: 1.1em; color: #999">敲点文字</a></div></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>归档</span>
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">OneCai&#39;s Blogger</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不会代码。</a>
+        </h2>
       
     </div>
-    <ul class="card-archive-list">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://onecai.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
   
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2024/10/">
-          <span class="card-archive-list-date">十月 2024</span>
-          <span class="card-archive-list-count">3</span>
-        </a>
-      </li>
-    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-02T05:43:35.191Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/top.png);"><div id="footer-wrap"><div class="copyright">&copy;2006 - 2024 By OneCai</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎来到这个博客页面。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+    <article id="post-搜集了一些固态电池的资料" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/24/%E6%90%9C%E9%9B%86%E4%BA%86%E4%B8%80%E4%BA%9B%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%E7%9A%84%E8%B5%84%E6%96%99/" class="article-date">
+  <time class="dt-published" datetime="2024-10-24T12:53:37.000Z" itemprop="datePublished">2024年10月24日</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/10/24/%E6%90%9C%E9%9B%86%E4%BA%86%E4%B8%80%E4%BA%9B%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%E7%9A%84%E8%B5%84%E6%96%99/">搜集了一些固态电池的资料</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>关于电动汽车固态电池的热度比较多，找资料再了解了解。（草稿箱）</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://onecai.github.io/2024/10/24/%E6%90%9C%E9%9B%86%E4%BA%86%E4%B8%80%E4%BA%9B%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%E7%9A%84%E8%B5%84%E6%96%99/" data-id="cm2otbkf20005y28ffo3v6dyk" data-title="搜集了一些固态电池的资料" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-一句话顶一万句" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/17/%E4%B8%80%E5%8F%A5%E8%AF%9D%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5/" class="article-date">
+  <time class="dt-published" datetime="2024-10-17T09:59:35.000Z" itemprop="datePublished">2024年10月17日</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/10/17/%E4%B8%80%E5%8F%A5%E8%AF%9D%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5/">一句话顶一万句</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://onecai.github.io/2024/10/17/%E4%B8%80%E5%8F%A5%E8%AF%9D%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5/" data-id="cm2otbked0001y28fb92odks7" data-title="一句话顶一万句" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-HelloWord" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/17/HelloWord/" class="article-date">
+  <time class="dt-published" datetime="2024-10-17T06:54:21.000Z" itemprop="datePublished">2024年10月17日</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1/">关于自己</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/10/17/HelloWord/">HelloWord</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="http://slgfeaby7.hn-bkt.clouddn.com/pic/IMG_1525.jpeg" alt="天池景区"></p>
+<p>这并非首次折腾个人博客了。</p>
+<h2 id="互联网免费产品时代"><a href="#互联网免费产品时代" class="headerlink" title="互联网免费产品时代"></a>互联网免费产品时代</h2><p>说实话，已记不清具体的时间顺序，那就随意聊聊吧，权当碎碎念。</p>
+<h3 id="QQ空间"><a href="#QQ空间" class="headerlink" title="QQ空间"></a>QQ空间</h3><p>在互联网老用户中，没折腾过QQ空间的人应该寥寥无几。那时，小伙伴们都热衷于装扮QQ空间，各种皮肤、挂件琳琅满目，从“毛坯房”逐步打造出属于自己的个性空间，还会设置一些图片、GIF 特效等。其中，QQ自带的说说功能被广泛使用，签名能同步到说说里，看着好友的评论，趣味十足。<br>深更半夜时，自己偶尔也会写些心灵鸡汤，不过更多的是转载互联网上的口水文章。以现在的眼光看，那些文章全都是价值输出，只能让人更焦虑，没别的用，初次接触那类文章时，会觉得很有道理。<br>当时也基本把QQ空间当成网络书签来用，晚上包夜玩游戏累了，就会花时间装扮空间，不时更新里面的内容，在文章排版上尤其耗费了不少时间，光玩花架子了。</p>
+<h3 id="MSN-Live-Space"><a href="#MSN-Live-Space" class="headerlink" title="MSN Live Space"></a>MSN Live Space</h3><p>与QQ空间相比，微软的MSN更加开放。浏览器输入网址或者从MSN主页链接登录即可，它的宽屏阅读模式比QQ空间中间那一小块阅读空间舒适太多。<br>Live Spaces功能界面简洁，无广告干扰，可设置和折腾的地方相对较多。通过简单的 HTML 代码修改，能实现全屏、在不同位置插入图片等功能。还可以把喜欢的歌曲整理成播放列表，利用音乐网址播放器的HTML代码嵌套到侧边栏，炫酷无比。<br>微软当时还专门开发了Windows端客户端，在里面设置、编辑图文十分便捷，习惯Office的人就能轻松上手，且能直接从客户端发布到web端。<br>后来，由于访问速度变慢，渐渐的登录次数也少了。2011年MSN Live Space关闭服务，Live space停止服务时，官方提供了内容导出服务，可惜如今已找不到当时导出的文件。<br>那时搜狐、新浪、网易博客正火爆。</p>
+<h3 id="Google-Blogger"><a href="#Google-Blogger" class="headerlink" title="Google Blogger"></a>Google Blogger</h3><p>谷歌的IM软件Gtalk极为简约，简单好用、速度快，同时还推出了许多聊天机器人，可以通过聊天界面发布文字内容，并同步到其他平台。尤其通过Gtalk发布Google Blogger文章很便捷。<br>谷歌家的blogger服务算是为数不多仍存活且无需审查内容的平台。除了常规的网页发布博客方式。它还可以通过邮件发布文章，即便到了2024年，这个功能依然可用。配合谷歌自家的图床使用很方便，无需另外找图床。<br>Google Blogger平台可以DIY的地方很多，可修改的地方很多。选定主题后，可以在配置界面选择，还可以在后台管理端直接修改HTML代码，甚至有高手将其改成了Wordpress的界面。现在虽然只能在国外访问，但如果配置了邮件发布地址，通过邮件方式可以很方便发布文章更新。</p>
+<h2 id="花钱折腾的阶段"><a href="#花钱折腾的阶段" class="headerlink" title="花钱折腾的阶段"></a>花钱折腾的阶段</h2><p>注册域名、购买虚拟主机入门款，安装Wordpress，配置SQL数据库用户，在网上寻找好看的主题，就这么一气呵成的搞定了。使用Wordpress的感觉是功能强大，可折腾的地方很多，毕竟它可以商用，对个人来说完全够用。<br>好看的主题众多，DIY的地方也不少。有人专门售卖博客主题，这时才明白当年腾讯在QQ空间皮肤方面赚美了。有段时间还从英文网站找好看的主题，进行页面端文字汉化。一如既往的折腾皮肤了。<br>在内容方面投入的时间不多，大多是流水账。当时接触到服务器、Oracle 数据库、PHP应用，东拼西凑地写了一些类似工作日志的文字，记录故障排查和问题解决。曾找几个朋友，打算一人创建一个账号共同更新博客内容，甚至想在博客中加入广告代码，由于自己的Google 账户无法加入银行卡等问题，此事不了了之。<br>在主机到期前，把所有内容打包导出为xml文件，后来又找时间把全部文章保存到Google blogger，暂且寄存在那里。</p>
+<h2 id="沉寂的时光"><a href="#沉寂的时光" class="headerlink" title="沉寂的时光"></a>沉寂的时光</h2><h3 id="微博"><a href="#微博" class="headerlink" title="微博"></a>微博</h3><p>与写一篇文章相比，上限140个字的微博更加轻松。腾讯微博、新浪微博，在这些平台上碎碎念了一段时间。当只剩下新浪微博后，里面可看性的内容变少，广告满屏，得费力扒开广告寻找可看的内容。<br>流量为王的时代，大佬们都在搞私域，渐渐地也不看微博了。饭否是个好地方，没有广告，纯纯地免费蹭平台。还在推特上也创建过账号，但没怎么用，等想用的时候却发现这边已经无法登录。</p>
+<h3 id="短视频"><a href="#短视频" class="headerlink" title="短视频"></a>短视频</h3><p>有人说不看书的人越来越多，或者说，看文字的人越来越少。<br>相比文字，人们更倾向于看短视频。平台通过野蛮的大数据分析，强塞给用户他们认为用户喜欢的视频。滑动大拇指看到的都是被贴上标签的 “好看视频”。同学聚会时有人说最长刷过5个小时的短视频。虽然剪一段视频比敲一段文字难得多，但看视频的人很少会去想视频作者点灯熬油制作视频是否只是为了取悦他们，都把自个当皇帝批阅奏章了……甚至出现了和小时候类似的情况————小时候大人们常说 “电视上说了……”，现在人们动不动就说 “抖音上说了……”，仿佛短视频平台就是字典、论据、史记（先不考虑 “正史都是胜利者的历史” 这句话)。各大平台上的视频也相互抄袭，看到第一个关于某个标签的视频时可能还会质疑其真实性，但随着大拇指不断上滑，看到很多相同观点的视频后，人们也就信了。毕竟作者们关注的是点击量和完播率。看点文字应该会实在一点。</p>
+<h2 id="再次折腾的念头"><a href="#再次折腾的念头" class="headerlink" title="再次折腾的念头"></a>再次折腾的念头</h2><p>目前，视频、音频保存记录是一种很好的方式。有人每天拍一段视频记录日常或想法，很赞同这个方法，但它也有弊端，那就是难以进行信息检索。除非制作完视频、音频后分别打上很多标签，或者录制完通过音频转文字的方式保存一份文字版，才能实现检索需求。<br>这就是又想折腾个人博客的原因，通过文字检索记忆。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://onecai.github.io/2024/10/17/HelloWord/" data-id="cm2otbkez0003y28f38ledlcj" data-title="HelloWord" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B2%E7%82%B9%E6%96%87%E5%AD%97/" rel="tag">敲点文字</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1/">关于自己</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B2%E7%82%B9%E6%96%87%E5%AD%97/" rel="tag">敲点文字</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%95%B2%E7%82%B9%E6%96%87%E5%AD%97/" style="font-size: 10px;">敲点文字</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/24/%E6%90%9C%E9%9B%86%E4%BA%86%E4%B8%80%E4%BA%9B%E5%9B%BA%E6%80%81%E7%94%B5%E6%B1%A0%E7%9A%84%E8%B5%84%E6%96%99/">搜集了一些固态电池的资料</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/17/%E4%B8%80%E5%8F%A5%E8%AF%9D%E9%A1%B6%E4%B8%80%E4%B8%87%E5%8F%A5/">一句话顶一万句</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/17/HelloWord/">HelloWord</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 OneCai<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
