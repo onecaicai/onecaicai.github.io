@@ -31,8 +31,6 @@ defaultContentLanguageInSubdir = false
   # 中文日期格式设置
   [languages.zh.params]
     DateFormat = "2006年01月02日"
-    # 确保显示绝对时间
-    ShowRelativeTime = false
   
   # Profile Mode 已禁用，首页将显示 _index.md 内容
   # [languages.zh.profileMode]
@@ -74,7 +72,7 @@ defaultContentLanguageInSubdir = false
   home = ["HTML", "RSS", "JSON"]
 
 [params]
-  env = "development"
+  env = "production"
   description = "专注AI技术分享，探索前沿科技，持续学习成长"
   author = "OneCai"
   defaultTheme = "dark"
@@ -118,7 +116,7 @@ defaultContentLanguageInSubdir = false
     enabled = false
   
   # 首页显示模式设置
-  homeInfoParams = false
+  # homeInfoParams = false
   
   # 首页文章显示设置 - 统一所有文章样式
   disableSpecial1stPost = true
