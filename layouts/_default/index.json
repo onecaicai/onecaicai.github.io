@@ -1,0 +1,8 @@
+{{- $pages := slice -}}
+{{- range where site.RegularPages "Type" "in" site.Params.mainSections -}}
+    {{- if and (not .Params.searchHidden) (ne .Layout `archives`) (ne .Layout `search`) -}}
+        {{- $page := dict "title" .Title "content" .Plain "permalink" .Permalink "summary" .Summary -}}
+        {{- $pages = $pages | append $page -}}
+    {{- end -}}
+{{- end -}}
+{{- $pages | jsonify -}}

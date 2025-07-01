@@ -1,0 +1,157 @@
+baseURL = "http://onecaicai.github.io"
+title = "OneCai's Blog"
+theme = "PaperMod"
+languageCode = "zh-cn"
+
+[pagination]
+  pagerSize = 10
+
+hasCJKLanguage = true
+enableInlineShortcodes = true
+enableEmoji = true
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+pygmentsUseClasses = true
+
+[minify]
+  disableXML = true
+
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+
+[permalinks]
+  posts = "/:year/:month/:day/:contentbasename/"
+
+[languages.zh]
+  languageName = "Chinese"
+  weight = 1
+  
+  # 中文日期格式设置
+  [languages.zh.params]
+    DateFormat = "2006年01月02日"
+    # 确保显示绝对时间
+    ShowRelativeTime = false
+  
+  # Profile Mode 已禁用，首页将显示 _index.md 内容
+  # [languages.zh.profileMode]
+  #   enabled = false
+
+  [languages.zh.menu]
+    [[languages.zh.menu.main]]
+      identifier = "home"
+      name = "🏠 首页"
+      url = "/"
+      weight = 1
+    [[languages.zh.menu.main]]
+      identifier = "tags"
+      name = "🏷️ 标签"
+      url = "/tags"
+      weight = 2
+    [[languages.zh.menu.main]]
+      identifier = "categories"
+      name = "📂 分类"
+      url = "/categories"
+      weight = 3
+    [[languages.zh.menu.main]]
+      identifier = "archives"
+      name = "⏱ 时间轴"
+      url = "/archives"
+      weight = 4
+    [[languages.zh.menu.main]]
+      identifier = "search"
+      name = "🔍 搜索"
+      url = "/search"
+      weight = 5
+    [[languages.zh.menu.main]]
+      identifier = "about"
+      name = "🙋🏻‍♂️ 关于"
+      url = "/about"
+      weight = 6
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  env = "development"
+  description = "专注AI技术分享，探索前沿科技，持续学习成长"
+  author = "OneCai"
+  defaultTheme = "dark"
+  disableThemeToggle = false
+  DateFormat = "2006年01月02日"
+  ShowShareButtons = false
+  ShowReadingTime = true
+  displayFullLangName = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  hideFooter = false
+  ShowWordCounts = true
+  VisitCount = true
+  ShowLastMod = true
+  ShowToc = true
+  TocOpen = true
+  comments = true
+  
+  # Giscus 评论系统配置
+  [params.giscus]
+    repo = "onecai/onecai.github.io"  # 修改为你的GitHub仓库名 (格式: 用户名/仓库名)
+    repoId = "R_kgDOPEzSrg"           # 从 giscus.app 获取，替换这个值
+    category = "Announcements"        # 讨论分类，建议使用 "Announcements"
+    categoryId = "DIC_kwDOPEzSrs4CsV18"   # 分类ID，从 giscus.app 获取，替换这个值
+    mapping = "pathname"              # 页面与讨论的映射方式
+    reactionsEnabled = "1"            # 启用反应
+    emitMetadata = "0"               # 发出元数据
+    inputPosition = "bottom"         # 评论框位置
+    theme = "preferred_color_scheme" # 主题
+    lang = "zh-CN"                  # 语言
+  
+  # 日期时间设置
+  ShowFullTextinRSS = false
+  disableHLJS = false
+  # 显示绝对时间，不使用相对时间格式
+  ShowRelativeTime = false
+  
+  # 首页设置 - 禁用 Profile Mode，让首页显示文章列表
+  [params.profileMode]
+    enabled = false
+  
+  # 首页显示模式设置
+  homeInfoParams = false
+  
+  # 首页文章显示设置 - 统一所有文章样式
+  disableSpecial1stPost = true
+  showFullTextinRSS = false
+  
+  # 首页布局设置 - 确保文章列表样式一致  
+  mainSections = ["posts"]
+  
+  # 社交图标
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/onecai"
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "https://twitter.com/onecai"
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:your-email@example.com"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    style = "darcula"

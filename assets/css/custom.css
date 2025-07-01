@@ -1,0 +1,728 @@
+/* 导入霞鹜文楷字体 */
+@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai@1.315.0/style.css');
+
+/* 全局字体设置 */
+:root {
+    --font-family: "LXGW WenKai", "霞鹜文楷", "楷体", "KaiTi", "STKaiti", serif;
+}
+
+/* 正文字体设置 */
+body, 
+.post-content,
+.post-single,
+article,
+.entry-content,
+p, span, div {
+    font-family: var(--font-family) !important;
+}
+
+/* 文章正文基础排版设置 */
+.post-content,
+.post-single .post-content,
+article {
+    line-height: 28px !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* 文章字体大小设置 */
+.post-content h1,
+.post-single h1,
+article h1 {
+    font-size: 28px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.8em !important;
+    margin-top: 1.2em !important;
+    font-family: var(--font-family) !important;
+}
+
+.post-content h2,
+.post-single h2,
+article h2 {
+    font-size: 20px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.6em !important;
+    margin-top: 1em !important;
+    font-family: var(--font-family) !important;
+}
+
+.post-content p,
+.post-single p,
+article p {
+    font-size: 16px !important;
+    line-height: 28px !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 16px !important;
+    font-family: var(--font-family) !important;
+}
+
+/* 列表项字体大小设置 */
+.post-content li,
+.post-single li,
+article li,
+ul li,
+ol li {
+    font-size: 16px !important;
+    line-height: 28px !important;
+    letter-spacing: 0.5px !important;
+    font-family: var(--font-family) !important;
+}
+
+/* 列表段落间距设置 */
+.post-content ul,
+.post-single ul,
+article ul,
+.post-content ol,
+.post-single ol,
+article ol {
+    margin-bottom: 16px !important;
+}
+
+/* 引用块和代码块排版设置 */
+.post-content blockquote,
+.post-single blockquote,
+article blockquote {
+    line-height: 28px !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 16px !important;
+    font-family: var(--font-family) !important;
+}
+
+.post-content pre,
+.post-single pre,
+article pre {
+    margin-bottom: 16px !important;
+}
+
+/* 文章中图片样式设置 */
+.post-content img,
+.post-single img,
+article img {
+    max-width: 650px !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 1.5em auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* 图片悬停效果 */
+.post-content img:hover,
+.post-single img:hover,
+article img:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 确保小屏幕上图片不超出容器 */
+@media (max-width: 700px) {
+    .post-content img,
+    .post-single img,
+    article img {
+        max-width: 100% !important;
+        margin: 1em auto !important;
+    }
+}
+
+/* 确保其他标题也有合适的字体大小 */
+.post-content h3,
+.post-single h3,
+article h3 {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.5em !important;
+    margin-top: 0.8em !important;
+    font-family: var(--font-family) !important;
+}
+
+.post-content h4,
+.post-single h4,
+article h4 {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.4em !important;
+    margin-top: 0.6em !important;
+    font-family: var(--font-family) !important;
+}
+
+.post-content h5,
+.post-single h5,
+article h5 {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.3em !important;
+    margin-top: 0.5em !important;
+    font-family: var(--font-family) !important;
+}
+
+.post-content h6,
+.post-single h6,
+article h6 {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.3em !important;
+    margin-top: 0.5em !important;
+    font-family: var(--font-family) !important;
+}
+
+/* 自定义样式：统一首页文章显示样式 */
+/* 重写 first-entry 样式，使其与 post-entry 完全一致 */
+
+.first-entry {
+    /* 完全重写 first-entry 样式，覆盖主题默认样式 */
+    position: relative !important;
+    display: block !important;
+    flex-direction: unset !important;
+    justify-content: unset !important;
+    min-height: unset !important;
+    margin: 0 0 var(--gap) 0 !important;
+    padding: var(--gap) !important;
+    background: var(--entry) !important;
+    border-radius: var(--radius) !important;
+    transition: transform 0.1s !important;
+    border: 1px solid var(--border) !important;
+}
+
+.first-entry:active {
+    transform: scale(0.96) !important;
+}
+
+/* 重写 first-entry 标题样式 */
+.first-entry .entry-header {
+    overflow: unset !important;
+    display: block !important;
+    -webkit-box-orient: unset !important;
+    -webkit-line-clamp: unset !important;
+}
+
+.first-entry .entry-header h1,
+.first-entry .entry-header h2 {
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    font-family: var(--font-family) !important;
+}
+
+/* 重写 first-entry 内容样式 */
+.first-entry .entry-content {
+    margin: 8px 0 !important;
+    color: var(--secondary) !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    font-family: var(--font-family) !important;
+}
+
+/* 重写 first-entry 底部信息样式 */
+.first-entry .entry-footer {
+    color: var(--secondary) !important;
+    font-size: 13px !important;
+    margin-top: 0 !important;
+    font-family: var(--font-family) !important;
+}
+
+/* 确保链接样式一致 */
+.first-entry .entry-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* 普通文章列表条目字体设置 */
+.post-entry,
+.post-entry .entry-header,
+.post-entry .entry-content,
+.post-entry .entry-footer,
+.post-entry h2,
+.post-entry p {
+    font-family: var(--font-family) !important;
+}
+
+/* 导航菜单和其他全局元素字体设置 */
+.main-nav,
+.menu,
+header,
+.breadcrumbs,
+.page-header,
+.terms-tags,
+.profile,
+.social-icons {
+    font-family: var(--font-family) !important;
+}
+
+/* 标签和分类页面字体设置 */
+.terms-tags a,
+.tag,
+.category {
+    font-family: var(--font-family) !important;
+}
+
+/* 去除所有链接的下划线 */
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+a:focus {
+    text-decoration: none !important;
+}
+
+a:active {
+    text-decoration: none !important;
+}
+
+/* 导航菜单链接样式 */
+.main-nav a,
+.menu a,
+header a {
+    text-decoration: none !important;
+}
+
+.main-nav a:hover,
+.menu a:hover,
+header a:hover {
+    text-decoration: none !important;
+}
+
+/* 文章列表链接样式 */
+.post-entry a,
+.first-entry a {
+    text-decoration: none !important;
+}
+
+.post-entry a:hover,
+.first-entry a:hover {
+    text-decoration: none !important;
+}
+
+/* 设置主内容区域宽度 */
+main {
+    max-width: 850px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* 确保在小屏幕上有适当的内边距 */
+@media (max-width: 900px) {
+    main {
+        margin: 0 20px !important;
+        max-width: calc(850px - 40px) !important;
+    }
+}
+
+/* 标签页面的标签字体大小调整 */
+.terms-tags .tag,
+.terms-tags a,
+.tag-cloud .tag,
+.tag-cloud a,
+.tag-entry .tag-name,
+.tag-entry a {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+}
+
+/* 标签页面的标签容器样式 */
+.terms-tags .tag-entry,
+.tag-cloud .tag-entry {
+    font-size: 16px !important;
+}
+
+/* 标签页面中的标签链接样式 */
+.terms-tags .tag-entry h3,
+.tag-cloud .tag-entry h3 {
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+
+/* 文章目录 (TOC) 左侧显示样式 - 优化版 */
+@media (min-width: 1200px) {
+    .post-single .post-content {
+        position: relative;
+    }
+    
+    .toc {
+        position: fixed !important;
+        left: 25px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 280px !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+        background: var(--theme) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 16px !important;
+        padding: 20px !important;
+        box-shadow: 
+            0 10px 40px rgba(0, 0, 0, 0.1),
+            0 4px 20px rgba(0, 0, 0, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        z-index: 1000 !important;
+        font-size: 14px !important;
+        opacity: 0.92 !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        color: var(--primary) !important;
+        transform-style: preserve-3d !important;
+        font-family: var(--font-family) !important;
+    }
+    
+    .toc:hover {
+        opacity: 1 !important;
+        transform: translateY(-50%) scale(1.02) !important;
+        box-shadow: 
+            0 15px 50px rgba(0, 0, 0, 0.15),
+            0 6px 25px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+    }
+    
+    /* 美化滚动条 */
+    .toc::-webkit-scrollbar {
+        width: 6px !important;
+    }
+    
+         .toc::-webkit-scrollbar-track {
+         background: var(--code-bg) !important;
+         border-radius: 3px !important;
+     }
+    
+    .toc::-webkit-scrollbar-thumb {
+        background: var(--primary) !important;
+        border-radius: 3px !important;
+        transition: background 0.3s ease !important;
+    }
+    
+    .toc::-webkit-scrollbar-thumb:hover {
+        background: var(--accent) !important;
+    }
+    
+    .toc details {
+        margin: 0 !important;
+    }
+    
+    .toc summary {
+        font-weight: 700 !important;
+        font-size: 15px !important;
+        margin-bottom: 16px !important;
+        cursor: pointer !important;
+        color: var(--primary) !important;
+        display: flex !important;
+        align-items: center !important;
+        position: relative !important;
+        padding: 8px 0 !important;
+                 border-bottom: 1px solid var(--border) !important;
+        font-family: var(--font-family) !important;
+    }
+    
+    .toc summary::before {
+        content: "📖" !important;
+        margin-right: 8px !important;
+        font-size: 14px !important;
+    }
+    
+    .toc .inner {
+        max-height: none !important;
+    }
+    
+    .toc ul {
+        margin: 0 !important;
+        padding-left: 18px !important;
+        list-style: none !important;
+        position: relative !important;
+    }
+    
+    /* 添加层级指示线 */
+    .toc ul::before {
+        content: "" !important;
+        position: absolute !important;
+        left: 8px !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 1px !important;
+                 background: linear-gradient(180deg, 
+             transparent 0%, 
+             var(--primary) 10%, 
+             var(--primary) 90%, 
+             transparent 100%) !important;
+         opacity: 0.3 !important;
+    }
+    
+    .toc ul li {
+        margin: 6px 0 !important;
+        line-height: 1.5 !important;
+        position: relative !important;
+    }
+    
+    /* 添加项目前的小圆点 */
+    .toc ul li::before {
+        content: "" !important;
+        position: absolute !important;
+        left: -10px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 4px !important;
+        height: 4px !important;
+        background: var(--secondary) !important;
+        border-radius: 50% !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .toc ul li:hover::before {
+        background: var(--primary) !important;
+        transform: translateY(-50%) scale(1.5) !important;
+    }
+    
+    .toc ul li a {
+        color: var(--secondary) !important;
+        text-decoration: none !important;
+        display: block !important;
+        padding: 6px 12px !important;
+        border-radius: 8px !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        font-weight: 400 !important; /* 设置默认字体粗细为正常，与活跃状态(900)形成对比 */
+        font-size: 1em !important; /* 设置默认字体大小 */
+        letter-spacing: 0 !important; /* 设置默认字符间距 */
+        font-family: var(--font-family) !important;
+    }
+    
+    /* 悬停效果 */
+    .toc ul li a::before {
+        content: "" !important;
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 0 !important;
+        height: 100% !important;
+                 background: linear-gradient(90deg, 
+             var(--primary), 
+             var(--primary)) !important;
+         opacity: 0.1 !important;
+        transition: width 0.3s ease !important;
+        z-index: -1 !important;
+    }
+    
+    .toc ul li a:hover {
+        color: var(--primary) !important;
+                 background: var(--code-bg) !important;
+         transform: translateX(6px) !important;
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    .toc ul li a:hover::before {
+        width: 100% !important;
+    }
+    
+    /* 移除主内容的左边距，让TOC悬浮不影响正文 */
+    .post-single .post-content {
+        margin-left: 0 !important;
+        max-width: 850px !important;
+    }
+}
+
+/* 中等屏幕上的TOC样式 - 优化版 */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .toc {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-height: none !important;
+        margin: 24px 0 !important;
+        background: var(--code-bg) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+        transition: all 0.3s ease !important;
+        font-family: var(--font-family) !important;
+    }
+    
+    .toc:hover {
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1) !important;
+        transform: translateY(-2px) !important;
+    }
+    
+    .toc summary::before {
+        content: "📚" !important;
+    }
+}
+
+/* 小屏幕上的TOC样式 - 优化版 */
+@media (max-width: 899px) {
+    .toc {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-height: none !important;
+        margin: 20px 0 !important;
+        padding: 16px !important;
+        background: var(--code-bg) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 10px !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05) !important;
+        font-size: 13px !important;
+        font-family: var(--font-family) !important;
+    }
+    
+    .toc summary {
+        font-size: 14px !important;
+        margin-bottom: 12px !important;
+        font-family: var(--font-family) !important;
+    }
+    
+    .toc summary::before {
+        content: "📱" !important;
+        font-size: 12px !important;
+    }
+    
+    .toc ul li {
+        margin: 4px 0 !important;
+    }
+    
+    .toc ul li a {
+        padding: 4px 8px !important;
+        font-size: 13px !important;
+        font-family: var(--font-family) !important;
+    }
+}
+
+/* TOC 活跃状态和高亮样式 - 加粗字体版 */
+.toc ul li a.active {
+    color: var(--theme) !important;
+    background: var(--primary) !important;
+    font-weight: 900 !important; /* 加强字体粗细 */
+    font-size: 1.05em !important; /* 稍微增大字体 */
+    letter-spacing: 0.3px !important; /* 增加字符间距，增强可读性 */
+    transform: translateX(8px) scale(1.02) !important;
+    border-radius: 10px !important;
+    box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.25),
+        0 2px 8px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    border-left: 4px solid var(--theme) !important; /* 添加左侧边框作为额外标识 */
+}
+
+.toc ul li a.active::before {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 活跃项目的圆点样式 */
+.toc ul li:has(a.active)::before {
+    background: var(--theme) !important;
+    transform: translateY(-50%) scale(2) !important;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.toc ul li a.active:hover {
+    background: var(--primary) !important;
+    color: var(--theme) !important;
+    font-weight: 900 !important; /* 保持加粗字体 */
+    font-size: 1.05em !important; /* 保持稍大字体 */
+    letter-spacing: 0.3px !important; /* 保持字符间距 */
+    transform: translateX(10px) scale(1.03) !important;
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        0 3px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    border-left: 4px solid var(--theme) !important; /* 保持左侧边框 */
+}
+
+/* 阅读进度条样式 - 优化版 */
+.reading-progress {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0% !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, 
+        #3b82f6 0%, 
+        #8b5cf6 25%, 
+        #06b6d4 50%, 
+        #10b981 75%, 
+        #f59e0b 100%) !important;
+    box-shadow: 
+        0 2px 8px rgba(59, 130, 246, 0.3),
+        0 0 20px rgba(59, 130, 246, 0.1) !important;
+    z-index: 1001 !important;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    opacity: 0.9 !important;
+}
+
+/* 进度条发光效果 */
+.reading-progress::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 30px !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.6) 50%, 
+        transparent 100%) !important;
+    opacity: 0.8 !important;
+    animation: shimmer 2s infinite !important;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-30px); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translateX(30px); opacity: 0; }
+}
+
+/* 为目录项添加平滑过渡效果 */
+.toc ul li a {
+    transition: all 0.3s ease !important;
+}
+
+/* 增强活跃状态的字体加粗效果 */
+.toc ul li a.active {
+    text-shadow: 0.5px 0 0 currentColor !important; /* 添加文字阴影增强加粗效果 */
+}
+
+/* 为活跃状态添加额外的字体加粗样式 */
+@supports (font-variation-settings: normal) {
+    .toc ul li a.active {
+        font-variation-settings: 'wght' 900 !important; /* 现代浏览器的可变字体支持 */
+    }
+}
+
+/* 确保在不同屏幕尺寸下都有明显的字体加粗效果 */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .toc ul li a.active {
+        font-weight: 900 !important;
+        font-size: 1.05em !important;
+        letter-spacing: 0.3px !important;
+        text-shadow: 0.5px 0 0 currentColor !important;
+    }
+}
+
+@media (max-width: 899px) {
+    .toc ul li a.active {
+        font-weight: 900 !important;
+        font-size: 1.05em !important;
+        letter-spacing: 0.3px !important;
+        text-shadow: 0.5px 0 0 currentColor !important;
+    }
+}
