@@ -25,18 +25,57 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 现在，也还不算太晚。
 
+
+
 ## 搭建过程
 
 - 思路：模仿 `https://qwenlm.github.io` 和<a href="https://www.shaohanyun.top" target="_blank">田少晗的个人博客</a>这两个博客
-- 工具：cursor（在我这里算是大材小用了），所有操作都在cursor界面完成。
+- 工具：豆包（在我这里算是大材小用了）。
 
 ### 1. 安装Hugo
 
 安装Hugo并创建本地博客文件，这个操作在网上有很多，或者直接看Hugo的安装文档。
 
-我的系统在通过brew安装Hugo时报错，说是网络的原因，后来是解决了这个问题，但没记录下来。
+电脑系统在通过brew安装Hugo时报错，把安装源更换为国内源解决了这个问题。
 
 ### 2. 主题
 
-让cursor按照 `https://qwenlm.github.io`  博客设置主题，报错了几次没有解决，通过浏览器下载了`hugo-PaperMod-master`文件，把这个文件重命名后
+- 按照 `https://qwenlm.github.io`  博客设置主题，报错了几次没有解决，通过浏览器下载了`hugo-PaperMod-master`文件，把这个文件重命名为PaperMod，再修改`hugo.toml`文件。
 
+### 3. 自定修改
+
+- #### 字体
+
+- **主字体**: 霞鹜文楷 (LXGW WenKai)
+- **字体导入**: CDN方式 (`lxgw-wenkai@1.315.0`)
+- **字体层级**: LXGW WenKai → 霞鹜文楷 → 楷体 → KaiTi → STKaiti → serif
+
+
+- **默认主题**: 暗色主题
+- **语言**: 中文 (zh-cn)
+-  **主题**: PaperMod
+- **默认模式**: 暗色主题 (`defaultTheme = "dark"`)
+- **主题切换**: 已启用 (`disableThemeToggle = false`)
+- **Profile模式**: 已禁用，首页显示文章列表
+
+
+
+### 排版设置
+- **正文字体大小**: 16px
+- **行距**: 28px
+- **字间距**: 0.5px
+- **段落间距**: 16px
+- **标题字体大小**:
+  - H1: 28px
+  - H2: 20px
+  - H3: 18px
+  - H4: 16px
+  - H5: 15px
+  - H6: 14px
+
+### 图片样式
+- **最大宽度**: 650px
+- **居中显示**: 自动margin
+- **圆角**: 8px
+- **阴影**: 悬停时增强效果
+- **缩放**: 悬停时1.02倍

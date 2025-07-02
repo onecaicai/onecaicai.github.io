@@ -31,3 +31,9 @@ pids
 # Backup files
 *.backup
 hugo.toml.backup
+
+# 维护文档(仅本地管理)
+BLOG_MAINTENANCE.md
+CHANGELOG.md
+README-Templates.md
+update_docs.sh
