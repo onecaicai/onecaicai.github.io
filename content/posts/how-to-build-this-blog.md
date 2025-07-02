@@ -28,7 +28,7 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 现在，也还不算太晚。
 
-![刘家峡风景](/img/liu-jia-xia.jpeg)
+![刘家峡风景](/img/liu-jia-xia.jpeg "刘家峡水库景色")
 
 
 ## 搭建过程
