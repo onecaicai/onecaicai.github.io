@@ -27,6 +27,10 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 
 
+![刘家峡风景](/img/liu-jia-xia.jpeg)
+
+
+
 ## 搭建过程
 
 - 思路：模仿 `https://qwenlm.github.io` 和<a href="https://www.shaohanyun.top" target="_blank">田少晗的个人博客</a>这两个博客
