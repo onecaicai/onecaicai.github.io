@@ -1,9 +1,9 @@
-# Hugo
-/public
-/resources
+# Hugo 构建产物
+/public/
+/resources/
 .hugo_build.lock
 
-# macOS
+# 操作系统生成的文件
 .DS_Store
 .DS_Store?
 ._*
@@ -12,28 +12,52 @@
 ehthumbs.db
 Thumbs.db
 
-# Editor
+# 编辑器和IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Log files
+# 日志文件
 *.log
+logs/
 
-# Runtime data
+# 运行时数据
 pids
 *.pid
 *.seed
 *.pid.lock
 
-# Backup files
-*.backup
-hugo.toml.backup
+# 依赖目录
+node_modules/
 
-# 维护文档(仅本地管理)
-BLOG_MAINTENANCE.md
-CHANGELOG.md
-README-Templates.md
-update_docs.sh
+# 备份文件
+*.backup
+*.bak
+*~
+
+# 临时文件
+*.tmp
+*.temp
+*.sb-*
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 压缩文件
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# 个人笔记和草稿
+drafts/
+notes/
+*.draft.md
