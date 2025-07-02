@@ -4,7 +4,7 @@ date: 2025-07-01T18:03:13+08:00
 draft: false
 author: "OneCai"
 tags: ["Hugo", "博客搭建", "PaperMod"]
-categories: ["技术"]
+categories: ["操作记录"]
 summary: "小白按照教程搭建Hugo博客，蹭GitHub的免费空间。"
 description: "这篇文章将详细介绍我是如何搭建这个Hugo博客的。"
 keywords: ["Hugo", "博客搭建", "PaperMod"]
@@ -48,7 +48,7 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 ### 3. 自定修改
 
-- #### 字体
+> #### 字体
 
 **主字体**: 霞鹜文楷 (LXGW WenKai)
 
@@ -56,7 +56,7 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 **字体层级**: LXGW WenKai → 霞鹜文楷 → 楷体 → KaiTi → STKaiti → serif
 
-- #### 主题
+> #### 主题
 
 **默认主题**: 暗色主题
 
@@ -72,7 +72,7 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 
 
-- #### 排版设置
+> #### 排版设置
 
 **正文字体大小**: 16px
 
@@ -84,7 +84,7 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 **标题字体大小**: H1至H6分别为28px、20px、18px、16px、15px、14px
 
-- #### 图片样式
+> #### 图片样式
 
 **最大宽度**: 650px
 
