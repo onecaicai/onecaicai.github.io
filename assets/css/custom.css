@@ -101,7 +101,7 @@ article blockquote {
     letter-spacing: 0.5px !important;
     margin-bottom: 1.5em !important;
     margin-top: 0.5em !important;
-    padding: 1em 1.5em !important;
+    padding: 0.6em 1em !important;
     border-left: none !important;
     background: linear-gradient(135deg, 
         rgba(59, 130, 246, 0.05) 0%, 
@@ -260,15 +260,7 @@ article blockquote a:hover {
     }
 }
 
-.post-content pre,
-.post-single pre,
-article pre {
-    margin-bottom: 1.5em !important;
-    margin-top: 0.5em !important;
-    padding: 1em !important;
-    border-radius: 8px !important;
-    background-color: var(--code-block-bg) !important;
-}
+
 
 /* 文章中图片样式设置 */
 .post-content img,
@@ -952,16 +944,7 @@ article table td {
     text-align: left !important;
 }
 
-/* 代码块间距优化 */
-.post-content code,
-.post-single code,
-article code {
-    margin: 0 0.2em !important;
-    padding: 0.2em 0.4em !important;
-    background-color: var(--code-bg) !important;
-    border-radius: 3px !important;
-    font-size: 0.9em !important;
-}
+
 
 /* 水平分割线样式 */
 .post-content hr,
@@ -985,157 +968,62 @@ article figcaption {
     font-style: normal !important;
 }
 
-/* 代码块样式优化 - 表格形式显示，行号和代码分列 */
-/* 针对Chroma语法高亮的代码块 */
-.post-content .chroma,
-.post-single .chroma,
-article .chroma {
+/* 覆盖highlight的表格样式，让代码块不使用表格布局 */
+.post-content .highlighttable,
+.post-single .highlighttable,
+article .highlighttable {
     display: block !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    background-color: var(--code-block-bg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    table-layout: unset !important;
 }
 
-.post-content .chroma .lntable,
-.post-single .chroma .lntable,
-article .chroma .lntable {
-    display: table !important;
-    border-spacing: 0 !important;
-    border-collapse: collapse !important;
-    width: 100% !important;
-    table-layout: fixed !important;
+
+
+.post-content .highlighttable tr,
+.post-single .highlighttable tr,
+article .highlighttable tr {
+    display: block !important;
 }
 
-.post-content .chroma .lntable tbody,
-.post-single .chroma .lntable tbody,
-article .chroma .lntable tbody {
-    display: table-row-group !important;
-}
-
-.post-content .chroma .lntable tr,
-.post-single .chroma .lntable tr,
-article .chroma .lntable tr {
-    display: table-row !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-}
-
-.post-content .chroma .lntable tr:last-child,
-.post-single .chroma .lntable tr:last-child,
-article .chroma .lntable tr:last-child {
-    border-bottom: none !important;
-}
-
-.post-content .chroma .lntable .lntd,
-.post-single .chroma .lntable .lntd,
-article .chroma .lntable .lntd {
-    display: table-cell !important;
+.post-content .highlighttable td,
+.post-single .highlighttable td,
+article .highlighttable td {
+    display: block !important;
+    width: auto !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    vertical-align: top !important;
 }
 
-.post-content .chroma .lntable .lntd:first-child,
-.post-single .chroma .lntable .lntd:first-child,
-article .chroma .lntable .lntd:first-child {
-    width: 60px !important;
-    min-width: 60px !important;
-    max-width: 60px !important;
-    background-color: rgba(255, 255, 255, 0.05) !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
-    text-align: center !important;
-}
-
-.post-content .chroma .lntable .lntd:last-child,
-.post-single .chroma .lntable .lntd:last-child,
-article .chroma .lntable .lntd:last-child {
+.post-content .highlighttable td:first-child,
+.post-single .highlighttable td:first-child,
+article .highlighttable td:first-child {
     width: auto !important;
-    background-color: transparent !important;
+    background: none !important;
+    border: none !important;
 }
 
-.post-content .chroma .lnt,
-.post-single .chroma .lnt,
-article .chroma .lnt {
-    padding: 0.5em 0.3em !important;
-    text-align: center !important;
-    color: rgba(255, 255, 255, 0.5) !important;
-    font-size: 0.85em !important;
-    user-select: none !important;
-    background-color: transparent !important;
-    white-space: pre !important;
+.post-content .highlighttable td .linenodiv,
+.post-single .highlighttable td .linenodiv,
+article .highlighttable td .linenodiv {
+    display: none !important;
+}
+
+.post-content .highlighttable td .highlight,
+.post-single .highlighttable td .highlight,
+article .highlighttable td .highlight {
     margin: 0 !important;
-    font-family: 'Courier New', monospace !important;
-    font-weight: normal !important;
+    padding: 0 !important;
+    background: none !important;
 }
 
-.post-content .chroma .line,
-.post-single .chroma .line,
-article .chroma .line {
-    display: block !important;
-    width: 100% !important;
-}
-
-.post-content .chroma .line .cl,
-.post-single .chroma .line .cl,
-article .chroma .line .cl {
-    display: block !important;
-    padding: 0.5em 1em !important;
-    background-color: transparent !important;
+.post-content .highlighttable td .highlight pre,
+.post-single .highlighttable td .highlight pre,
+article .highlighttable td .highlight pre {
     margin: 0 !important;
-    white-space: pre !important;
-    overflow-x: auto !important;
-    font-family: 'Courier New', monospace !important;
-    line-height: 1.5 !important;
+    padding: 0 !important;
+    background: none !important;
 }
 
-/* 暗色主题下的代码块样式 */
-.dark .post-content .chroma,
-.dark .post-single .chroma,
-.dark article .chroma {
-    border-color: rgba(255, 255, 255, 0.15) !important;
-}
 
-.dark .post-content .chroma .lntable .lntd:first-child,
-.dark .post-single .chroma .lntable .lntd:first-child,
-.dark article .chroma .lntable .lntd:first-child {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
 
-.dark .post-content .chroma .lntable tr,
-.dark .post-single .chroma .lntable tr,
-.dark article .chroma .lntable tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
 
-.dark .post-content .chroma .lnt,
-.dark .post-single .chroma .lnt,
-.dark article .chroma .lnt {
-    color: rgba(255, 255, 255, 0.4) !important;
-}
-
-/* 小屏幕上的代码块样式优化 */
-@media (max-width: 768px) {
-    .post-content .chroma .lntable .lntd:first-child,
-    .post-single .chroma .lntable .lntd:first-child,
-    article .chroma .lntable .lntd:first-child {
-        width: 50px !important;
-        min-width: 50px !important;
-        max-width: 50px !important;
-    }
-    
-    .post-content .chroma .lnt,
-    .post-single .chroma .lnt,
-    article .chroma .lnt {
-        padding: 0.4em 0.2em !important;
-        font-size: 0.8em !important;
-    }
-    
-    .post-content .chroma .line .cl,
-    .post-single .chroma .line .cl,
-    article .chroma .line .cl {
-        padding: 0.4em 0.8em !important;
-        font-size: 0.9em !important;
-    }
-}

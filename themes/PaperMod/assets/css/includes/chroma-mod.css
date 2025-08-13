@@ -2,8 +2,9 @@
     background-color: unset !important;
 }
 
+/* 恢复默认的代码块样式 */
 .chroma .hl {
-    display: flex;
+    /* 移除 flex 布局，恢复默认的块级布局 */
 }
 
 .chroma .lnt {
