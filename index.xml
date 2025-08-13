@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>OneCai&#39;s Blog</title>
+    <link>https://onecaicai.github.io/</link>
+    <description>Recent content on OneCai&#39;s Blog</description>
+    <generator>Hugo -- 0.147.8</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 12 Aug 2025 17:41:27 +0800</lastBuildDate>
+    <atom:link href="https://onecaicai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title> 图片处理工具 - 重命名、调整尺寸并清除EXIF</title>
+      <link>https://onecaicai.github.io/2025/08/12/modify-pic/</link>
+      <pubDate>Tue, 12 Aug 2025 17:41:27 +0800</pubDate>
+      <guid>https://onecaicai.github.io/2025/08/12/modify-pic/</guid>
+      <description>&lt;p&gt;从相册导入了几张图片，发现里面有设备信息之类的个人信息，网上找了几个工具，有的需要付费，有些干脆不能使用，提交cursor这个需求，用python实现了两个功能，一个是删除隐私信息，一个是调整图片宽度。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地址：https://github.com/onecaicai/image-resize-clean&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;程序简介&#34;&gt;程序简介&lt;/h2&gt;
+&lt;p&gt;这是一个图片批量处理工具，可以自动完成以下操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;批量重命名&lt;/strong&gt;：将图片按指定关键字重命名&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能调整尺寸&lt;/strong&gt;：根据图片方向自动调整到合适尺寸&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;清除EXIF信息&lt;/strong&gt;：保护隐私，移除图片的元数据信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;功能特点&#34;&gt;功能特点&lt;/h2&gt;
+&lt;h3 id=&#34;-智能尺寸调整&#34;&gt;🎯 智能尺寸调整&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;横版图片&lt;/strong&gt;：限制宽度为850px，高度按比例缩放&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;竖版图片&lt;/strong&gt;：限制高度为850px，宽度按比例缩放&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保持比例&lt;/strong&gt;：使用高质量的LANCZOS算法，确保图片质量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-隐私保护&#34;&gt;🔒 隐私保护&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;清除EXIF&lt;/strong&gt;：完全移除图片的EXIF元数据信息&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保护隐私&lt;/strong&gt;：防止个人信息泄露&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;-批量重命名&#34;&gt;📝 批量重命名&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;统一格式&lt;/strong&gt;：按&amp;quot;关键字-序号&amp;quot;格式重命名&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保持扩展名&lt;/strong&gt;：自动识别并保持原始文件格式&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;支持格式&lt;/strong&gt;：JPG、JPEG、PNG、WEBP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+&lt;h3 id=&#34;方法一命令行参数推荐&#34;&gt;方法一：命令行参数（推荐）&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 resize_clean.py &amp;lt;图片目录路径&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 resize_clean.py /path/to/your/images
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;方法二交互模式&#34;&gt;方法二：交互模式&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 resize_clean.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后按提示输入目录路径和重命名关键字。&lt;/p&gt;
+&lt;h2 id=&#34;程序流程&#34;&gt;程序流程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;输入验证&lt;/strong&gt;：检查目录是否存在&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文件扫描&lt;/strong&gt;：扫描目录中的所有图片文件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重命名规划&lt;/strong&gt;：显示重命名预览&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;尺寸调整&lt;/strong&gt;：根据图片方向智能调整尺寸&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;EXIF清除&lt;/strong&gt;：移除所有元数据信息&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保存输出&lt;/strong&gt;：保存到&lt;code&gt;resized&lt;/code&gt;子目录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;输出结果&#34;&gt;输出结果&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输出目录&lt;/strong&gt;：在输入目录下创建&lt;code&gt;resized&lt;/code&gt;文件夹&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文件命名&lt;/strong&gt;：&lt;code&gt;关键字-序号.扩展名&lt;/code&gt;（如：&lt;code&gt;trip-01.jpg&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;尺寸标准&lt;/strong&gt;：最大边长850px，保持原始比例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;测试结果&#34;&gt;测试结果&lt;/h2&gt;
+&lt;h3 id=&#34;测试环境&#34;&gt;测试环境&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;操作系统：macOS 25.0.0&lt;/li&gt;
+&lt;li&gt;Python版本：3.x&lt;/li&gt;
+&lt;li&gt;依赖库：Pillow (PIL)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;测试用例&#34;&gt;测试用例&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;横版图片&lt;/strong&gt; (1920x1080) → (850x478) ✅&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;竖版图片&lt;/strong&gt; (1080x1920) → (478x850) ✅&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方形图片&lt;/strong&gt; (1000x1000) → (850x850) ✅&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;功能验证&#34;&gt;功能验证&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ 重命名功能正常&lt;/li&gt;
+&lt;li&gt;✅ 尺寸调整准确&lt;/li&gt;
+&lt;li&gt;✅ EXIF信息已清除&lt;/li&gt;
+&lt;li&gt;✅ 图片质量保持良好&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;系统要求&#34;&gt;系统要求&lt;/h2&gt;
+&lt;h3 id=&#34;必需依赖&#34;&gt;必需依赖&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#727272&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip install Pillow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;支持的文件格式&#34;&gt;支持的文件格式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;JPEG (.jpg, .jpeg)&lt;/li&gt;
+&lt;li&gt;PNG (.png)&lt;/li&gt;
+&lt;li&gt;WebP (.webp)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;注意事项&#34;&gt;注意事项&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;备份原图&lt;/strong&gt;：程序会修改原图，建议先备份&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目录权限&lt;/strong&gt;：确保对输入目录有读写权限&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;磁盘空间&lt;/strong&gt;：确保有足够空间存储处理后的图片&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文件格式&lt;/strong&gt;：只处理支持的图片格式，其他文件会被忽略&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;错误处理&#34;&gt;错误处理&lt;/h2&gt;
+&lt;p&gt;程序包含完善的错误处理机制：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>2025年暑假外出记录</title>
+      <link>https://onecaicai.github.io/2025/07/18/202507atrip/</link>
+      <pubDate>Fri, 18 Jul 2025 18:04:08 +0800</pubDate>
+      <guid>https://onecaicai.github.io/2025/07/18/202507atrip/</guid>
+      <description>趁假期外出转一圈，没有去人多的景点，选了一个地方，待了一个星期。</description>
+    </item>
+    <item>
+      <title>这个博客是怎么搭建起来的</title>
+      <link>https://onecaicai.github.io/2025/07/01/how-to-build-this-blog/</link>
+      <pubDate>Tue, 01 Jul 2025 18:03:13 +0800</pubDate>
+      <guid>https://onecaicai.github.io/2025/07/01/how-to-build-this-blog/</guid>
+      <description>这篇文章将详细介绍我是如何搭建这个Hugo博客的。</description>
+    </item>
+  </channel>
+</rss>
