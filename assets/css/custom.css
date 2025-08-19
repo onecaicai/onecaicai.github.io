@@ -1,5 +1,5 @@
-/* 导入霞鹜文楷字体 */
-@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai@1.315.0/style.css');
+/* 导入仓耳今楷字体 - 使用正确的CDN */
+@import url('https://cdn.jsdelivr.net/npm/tsanger-jinkai@1.0.0/style.css');
 
 /* 自定义CSS变量 - 优化段落间距 */
 :root {
@@ -10,9 +10,60 @@
     --block-spacing: 1.5em;
 }
 
-/* 全局字体设置 */
+/* 全局字体设置 - 使用仓耳今楷 */
 :root {
-    --font-family: "LXGW WenKai", "霞鹜文楷", "楷体", "KaiTi", "STKaiti", serif;
+    --font-family: "TsangerJinKai", "仓耳今楷", "TsangerJinKai01", "楷体", "KaiTi", "STKaiti", serif;
+}
+
+/* Safari字体回退方案 */
+@supports (-webkit-appearance: none) {
+    :root {
+        --font-family: "TsangerJinKai", "仓耳今楷", "TsangerJinKai01", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif;
+    }
+}
+
+/* 强制字体加载 - 解决Safari字体加载问题 */
+@font-face {
+    font-family: 'TsangerJinKai';
+    src: url('https://cdn.jsdelivr.net/npm/tsanger-jinkai@1.0.0/fonts/TsangerJinKai01.ttf') format('truetype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 备用字体加载 */
+@font-face {
+    font-family: 'TsangerJinKai01';
+    src: url('https://cdn.jsdelivr.net/npm/tsanger-jinkai@1.0.0/fonts/TsangerJinKai01.ttf') format('truetype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Safari特定优化 */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    body, 
+    .post-content,
+    .post-single,
+    article,
+    .entry-content,
+    p, span, div {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: var(--font-family) !important;
+    }
+}
+
+/* 强制字体应用 - 确保在所有浏览器中都能正确显示 */
+* {
+    font-family: "TsangerJinKai", "仓耳今楷", "TsangerJinKai01", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif !important;
+}
+
+/* 特别针对Safari的字体强制加载 */
+@supports (-webkit-appearance: none) {
+    * {
+        font-family: "TsangerJinKai", "仓耳今楷", "TsangerJinKai01", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif !important;
+    }
 }
 
 /* 正文字体设置 */

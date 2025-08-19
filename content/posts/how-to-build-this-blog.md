@@ -49,11 +49,13 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 > #### 字体
 
-**主字体**: 霞鹜文楷 (LXGW WenKai)
+**主字体**: 仓耳今楷 (TsangerJinKai)
 
-**字体导入**: CDN方式 (`lxgw-wenkai@1.315.0`)
+**字体导入**: CDN方式 (`tsanger-jinkai@1.0.0`)
 
-**字体层级**: LXGW WenKai → 霞鹜文楷 → 楷体 → KaiTi → STKaiti → serif
+**字体层级**: TsangerJinKai → 仓耳今楷 → TsangerJinKai01 → PingFang SC → Hiragino Sans GB → Microsoft YaHei → 楷体 → KaiTi → STKaiti → serif
+
+**Safari兼容性**: 已优化，支持Safari浏览器显示
 
 > #### 主题
 
