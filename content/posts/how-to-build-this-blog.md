@@ -1,13 +1,16 @@
 ---
 title: "这个博客是怎么搭建起来的"
-date: 2025-07-01T18:03:13+08:00
+date: 2024-07-01T18:03:13+08:00
 draft: false
 author: "OneCai"
-tags: ["Hugo", "博客搭建", "PaperMod"]
-categories: ["操作记录"]
+tags: ["Hugo", "博客搭建", "技术教程"]
+categories: ["技术分享"]
 summary: "小白按照教程搭建Hugo博客，蹭GitHub的免费空间。"
 description: "这篇文章将详细介绍我是如何搭建这个Hugo博客的。"
 keywords: ["Hugo", "博客搭建", "PaperMod"]
+ShowToc: true
+TocOpen: true
+
 ---
 
 ## 算是前言
@@ -49,11 +52,11 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 > #### 字体
 
-**主字体**: 仓耳今楷 (TsangerJinKai)
+**主字体**: 仓耳今楷04-W03 (TsangerJinKai04-W03)
 
-**字体导入**: CDN方式 (`tsanger-jinkai@1.0.0`)
+**字体导入**: 本地字体文件 (`/font/仓耳今楷04-W03.ttf`)
 
-**字体层级**: TsangerJinKai → 仓耳今楷 → TsangerJinKai01 → PingFang SC → Hiragino Sans GB → Microsoft YaHei → 楷体 → KaiTi → STKaiti → serif
+**字体层级**: TsangerJinKai04-W03 → 仓耳今楷04-W03 → TsangerJinKai04 → PingFang SC → Hiragino Sans GB → Microsoft YaHei → 楷体 → KaiTi → STKaiti → serif
 
 **Safari兼容性**: 已优化，支持Safari浏览器显示
 
@@ -75,7 +78,7 @@ keywords: ["Hugo", "博客搭建", "PaperMod"]
 
 > #### 排版设置
 
-**正文字体大小**: 16px
+**正文字体大小**: 18px
 
 **行距**: 28px
 

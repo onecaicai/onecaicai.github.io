@@ -1,0 +1,27 @@
+{{/* 单篇文章元信息显示 - 左侧分类，右侧字数和日期 */}}
+<div class="post-meta-container">
+    {{/* 左侧分类 */}}
+    <div class="post-meta-left">
+        {{- if .Params.categories }}
+        <span class="post-category">
+            <a href='/categories/{{ index .Params.categories 0 | urlize }}'>{{ index .Params.categories 0 }}</a>
+        </span>
+        {{- end }}
+    </div>
+    
+    {{/* 右侧字数和日期 */}}
+    <div class="post-meta-right">
+        {{- if or (.Param "ShowWordCount") (.Param "ShowWordCounts") }}
+        {{- $content := .Content | plainify | htmlUnescape -}}
+        {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" $content) -}}
+        {{- $englishWords := len (findRE "[a-zA-Z]+" $content) -}}
+        {{- $numbers := len (findRE "[0-9]+" $content) -}}
+        {{- $wordCount := add (add $chineseChars $englishWords) $numbers -}}
+        <span class="post-word-count">{{ $wordCount }}字</span>
+        {{- end }}
+        
+        {{- if not .Date.IsZero -}}
+        <span class="post-date">{{ .Date.Format "2006年01月02日" }}</span>
+        {{- end }}
+    </div>
+</div>

@@ -3,7 +3,10 @@
 <link rel="stylesheet" href="{{ $customCss.RelPermalink }}">
 
 {{/* 仅在文章页面加载目录高亮脚本 */}}
-{{ if .IsPage }}
-{{ $tocJs := resources.Get "js/toc-highlight.js" | resources.Minify }}
-<script src="{{ $tocJs.RelPermalink }}" defer></script>
+{{ if and .IsPage (eq (.Param "ShowToc") true) }}
+{{ $tocJs := resources.Get "js/toc-highlight.js" }}
+{{ if $tocJs }}
+{{ $tocJsMin := $tocJs | resources.Minify }}
+<script src="{{ $tocJsMin.RelPermalink }}" defer></script>
+{{ end }}
 {{ end }}

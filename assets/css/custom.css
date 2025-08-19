@@ -1,5 +1,4 @@
-/* 导入仓耳今楷字体 - 使用正确的CDN */
-@import url('https://cdn.jsdelivr.net/npm/tsanger-jinkai@1.0.0/style.css');
+/* 导入仓耳今楷字体 - 使用本地字体文件 */
 
 /* 自定义CSS变量 - 优化段落间距 */
 :root {
@@ -10,59 +9,50 @@
     --block-spacing: 1.5em;
 }
 
-/* 全局字体设置 - 使用仓耳今楷 */
+/* 全局字体设置 - 使用仓耳今楷04-W04 */
 :root {
-    --font-family: "TsangerJinKai", "仓耳今楷", "TsangerJinKai01", "楷体", "KaiTi", "STKaiti", serif;
+    --font-family: "TsangerJinKai04-W04", "仓耳今楷04-W04", "TsangerJinKai04", "楷体", "KaiTi", "STKaiti", serif;
 }
 
 /* Safari字体回退方案 */
 @supports (-webkit-appearance: none) {
     :root {
-        --font-family: "TsangerJinKai", "仓耳今楷", "TsangerJinKai01", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif;
+        --font-family: "TsangerJinKai04-W04", "仓耳今楷04-W04", "TsangerJinKai04", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif;
     }
 }
 
-/* 强制字体加载 - 解决Safari字体加载问题 */
+/* 强制字体加载 - 使用本地字体文件 */
 @font-face {
-    font-family: 'TsangerJinKai';
-    src: url('https://cdn.jsdelivr.net/npm/tsanger-jinkai@1.0.0/fonts/TsangerJinKai01.ttf') format('truetype');
-    font-display: swap;
+    font-family: "TsangerJinKai04-W04";
+    src: url("/font/仓耳今楷04-W04.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 /* 备用字体加载 */
 @font-face {
-    font-family: 'TsangerJinKai01';
-    src: url('https://cdn.jsdelivr.net/npm/tsanger-jinkai@1.0.0/fonts/TsangerJinKai01.ttf') format('truetype');
-    font-display: swap;
+    font-family: "仓耳今楷04-W04";
+    src: url("/font/仓耳今楷04-W04.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 /* Safari特定优化 */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    body, 
-    .post-content,
-    .post-single,
-    article,
-    .entry-content,
-    p, span, div {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-family: var(--font-family) !important;
+    * {
+        font-family: "TsangerJinKai04-W04", "仓耳今楷04-W04", "TsangerJinKai04", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif !important;
     }
 }
 
 /* 强制字体应用 - 确保在所有浏览器中都能正确显示 */
 * {
-    font-family: "TsangerJinKai", "仓耳今楷", "TsangerJinKai01", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif !important;
+    font-family: "TsangerJinKai04-W04", "仓耳今楷04-W04", "TsangerJinKai04", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif !important;
 }
 
 /* 特别针对Safari的字体强制加载 */
 @supports (-webkit-appearance: none) {
     * {
-        font-family: "TsangerJinKai", "仓耳今楷", "TsangerJinKai01", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif !important;
+        font-family: "TsangerJinKai04-W04", "仓耳今楷04-W04", "TsangerJinKai04", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "楷体", "KaiTi", "STKaiti", serif !important;
     }
 }
 
@@ -70,65 +60,90 @@
 body, 
 .post-content,
 .post-single,
-article,
-.entry-content,
-p, span, div {
+article {
     font-family: var(--font-family) !important;
 }
 
 /* 文章正文基础排版设置 */
 .post-content,
-.post-single .post-content,
-article {
-    line-height: 1.8 !important;
-    letter-spacing: 0.5px !important;
+.post-single {
+    line-height: var(--line-spacing) !important;
+    font-size: 18px !important;
+    color: var(--content) !important;
     text-align: justify !important;
 }
 
-/* 文章字体大小设置 */
+/* 文章字体大小设置 - 优化版 */
 .post-content h1,
 .post-single h1,
 article h1 {
-    font-size: 28px !important;
-    line-height: 1.4 !important;
-    margin-bottom: 0.8em !important;
-    margin-top: 1.2em !important;
-    font-family: var(--font-family) !important;
+    font-size: 32px !important;
+    line-height: 1.3 !important;
+    margin-top: 1.5em !important;
+    margin-bottom: 1em !important;
+    font-weight: 700 !important;
+    color: var(--primary) !important;
+    position: relative !important;
+    padding-bottom: 8px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.post-content h1::before,
+.post-single h1::before,
+article h1::before {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    height: 3px !important;
+    width: 60px !important;
+    background: linear-gradient(90deg, var(--primary), transparent) !important;
 }
 
 .post-content h2,
 .post-single h2,
 article h2 {
-    font-size: 20px !important;
-    line-height: 1.5 !important;
-    margin-bottom: 0.6em !important;
-    margin-top: 1em !important;
-    font-family: var(--font-family) !important;
+    font-size: 26px !important;
+    line-height: 1.4 !important;
+    margin-top: 1.3em !important;
+    margin-bottom: 0.8em !important;
+    font-weight: 600 !important;
+    color: var(--primary) !important;
+    position: relative !important;
+    padding-left: 12px !important;
+}
+
+.post-content h2::before,
+.post-single h2::before,
+article h2::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 4px !important;
+    background: var(--accent) !important;
+    border-radius: 2px !important;
 }
 
 .post-content p,
 .post-single p,
 article p {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-    letter-spacing: 0.5px !important;
-    margin-bottom: 1.5em !important;
-    margin-top: 0.5em !important;
-    font-family: var(--font-family) !important;
+    font-size: 18px !important;
+    line-height: var(--line-spacing) !important;
+    margin-bottom: var(--paragraph-spacing) !important;
+    color: var(--content) !important;
     text-align: justify !important;
 }
 
 /* 列表项字体大小设置 */
 .post-content li,
 .post-single li,
-article li,
-ul li,
-ol li {
-    font-size: 16px !important;
-    line-height: 1.8 !important;
-    letter-spacing: 0.5px !important;
-    margin-bottom: 0.5em !important;
-    font-family: var(--font-family) !important;
+article li {
+    font-size: 18px !important;
+    line-height: var(--line-spacing) !important;
+    margin-bottom: var(--list-spacing) !important;
+    color: var(--content) !important;
     text-align: justify !important;
 }
 
@@ -139,8 +154,7 @@ article ul,
 .post-content ol,
 .post-single ol,
 article ol {
-    margin-bottom: 1.5em !important;
-    margin-top: 0.5em !important;
+    margin-bottom: var(--block-spacing) !important;
     padding-left: 1.5em !important;
 }
 
@@ -148,39 +162,22 @@ article ol {
 .post-content blockquote,
 .post-single blockquote,
 article blockquote {
-    line-height: 1.8 !important;
-    letter-spacing: 0.5px !important;
-    margin-bottom: 1.5em !important;
-    margin-top: 0.5em !important;
-    padding: 0.6em 1em !important;
-    border-left: none !important;
-    background: linear-gradient(135deg, 
-        rgba(59, 130, 246, 0.05) 0%, 
-        rgba(147, 51, 234, 0.05) 50%, 
-        rgba(236, 72, 153, 0.05) 100%) !important;
-    font-family: var(--font-family) !important;
-    text-align: justify !important;
     position: relative !important;
+    margin: 2em 0 !important;
+    padding: 1.2em 1.8em !important;
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.02) 0%, 
+        rgba(59, 130, 246, 0.05) 50%, 
+        rgba(59, 130, 246, 0.02) 100%) !important;
+    border: 1px solid rgba(59, 130, 246, 0.1) !important;
+    border-left: 4px solid var(--primary) !important;
     border-radius: 12px !important;
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.08),
-        0 2px 8px rgba(0, 0, 0, 0.04),
-        inset 0 1px rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(59, 130, 246, 0.1) !important;
+        0 4px 20px rgba(0, 0, 0, 0.05),
+        0 2px 10px rgba(0, 0, 0, 0.03),
+        inset 0 1px rgba(255, 255, 255, 0.2) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     overflow: hidden !important;
-}
-
-/* 引用块悬停效果 */
-.post-content blockquote:hover,
-.post-single blockquote:hover,
-article blockquote:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 
-        0 8px 30px rgba(0, 0, 0, 0.12),
-        0 4px 12px rgba(0, 0, 0, 0.06),
-        inset 0 1px rgba(255, 255, 255, 0.15) !important;
-    border-color: rgba(59, 130, 246, 0.2) !important;
 }
 
 /* 引用块左边渐变竖线 */
@@ -254,37 +251,20 @@ article blockquote a {
     transition: all 0.2s ease !important;
 }
 
-.post-content blockquote a:hover,
-.post-single blockquote a:hover,
-article blockquote a:hover {
-    color: #1d4ed8 !important;
-    border-bottom-color: #1d4ed8 !important;
-    background-color: rgba(59, 130, 246, 0.05) !important;
-}
-
 /* 暗色主题下的引用块样式 */
 .dark .post-content blockquote,
 .dark .post-single blockquote,
 .dark article blockquote {
     background: linear-gradient(135deg, 
-        rgba(59, 130, 246, 0.1) 0%, 
-        rgba(147, 51, 234, 0.1) 50%, 
-        rgba(236, 72, 153, 0.1) 100%) !important;
+        rgba(59, 130, 246, 0.08) 0%, 
+        rgba(59, 130, 246, 0.12) 50%, 
+        rgba(59, 130, 246, 0.08) 100%) !important;
     border-color: rgba(59, 130, 246, 0.2) !important;
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.3),
+        0 8px 30px rgba(0, 0, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.1),
         0 2px 8px rgba(0, 0, 0, 0.2),
         inset 0 1px rgba(255, 255, 255, 0.05) !important;
-}
-
-.dark .post-content blockquote:hover,
-.dark .post-single blockquote:hover,
-.dark article blockquote:hover {
-    box-shadow: 
-        0 8px 30px rgba(0, 0, 0, 0.4),
-        0 4px 12px rgba(0, 0, 0, 0.3),
-        inset 0 1px rgba(255, 255, 255, 0.1) !important;
-    border-color: rgba(59, 130, 246, 0.3) !important;
 }
 
 /* 小屏幕上的引用块样式优化 */
@@ -311,28 +291,17 @@ article blockquote a:hover {
     }
 }
 
-
-
 /* 文章中图片样式设置 */
 .post-content img,
 .post-single img,
 article img {
-    max-width: 650px !important;
+    max-width: 100% !important;
     width: 100% !important;
     height: auto !important;
     display: block !important;
     margin: 1.5em auto !important;
     border-radius: 8px !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-}
-
-/* 图片悬停效果 */
-.post-content img:hover,
-.post-single img:hover,
-article img:hover {
-    transform: scale(1.02) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* 确保小屏幕上图片不超出容器 */
@@ -345,65 +314,214 @@ article img:hover {
     }
 }
 
-/* 确保其他标题也有合适的字体大小 */
+/* 响应式标题字体大小调整 */
+@media (max-width: 768px) {
+    .post-content h1,
+    .post-single h1,
+    article h1 {
+        font-size: 28px !important;
+        margin-top: 1.2em !important;
+        margin-bottom: 0.8em !important;
+    }
+    
+    .post-content h2,
+    .post-single h2,
+    article h2 {
+        font-size: 22px !important;
+        margin-top: 1.1em !important;
+        margin-bottom: 0.7em !important;
+    }
+    
+    .post-content h3,
+    .post-single h3,
+    article h3 {
+        font-size: 19px !important;
+        margin-top: 1em !important;
+        margin-bottom: 0.6em !important;
+    }
+    
+    .post-content h4,
+    .post-single h4,
+    article h4 {
+        font-size: 17px !important;
+        margin-top: 0.8em !important;
+        margin-bottom: 0.5em !important;
+    }
+    
+    .post-content h5,
+    .post-single h5,
+    article h5 {
+        font-size: 16px !important;
+        margin-top: 0.7em !important;
+        margin-bottom: 0.4em !important;
+    }
+    
+    .post-content h6,
+    .post-single h6,
+    article h6 {
+        font-size: 15px !important;
+        margin-top: 0.6em !important;
+        margin-bottom: 0.3em !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-content h1,
+    .post-single h1,
+    article h1 {
+        font-size: 24px !important;
+        margin-top: 1em !important;
+        margin-bottom: 0.7em !important;
+    }
+    
+    .post-content h2,
+    .post-single h2,
+    article h2 {
+        font-size: 20px !important;
+        margin-top: 0.9em !important;
+        margin-bottom: 0.6em !important;
+    }
+    
+    .post-content h3,
+    .post-single h3,
+    article h3 {
+        font-size: 18px !important;
+        margin-top: 0.8em !important;
+        margin-bottom: 0.5em !important;
+    }
+    
+    .post-content h4,
+    .post-single h4,
+    article h4 {
+        font-size: 16px !important;
+        margin-top: 0.7em !important;
+        margin-bottom: 0.4em !important;
+    }
+    
+    .post-content h5,
+    .post-single h5,
+    article h5 {
+        font-size: 15px !important;
+        margin-top: 0.6em !important;
+        margin-bottom: 0.3em !important;
+    }
+    
+    .post-content h6,
+    .post-single h6,
+    article h6 {
+        font-size: 14px !important;
+        margin-top: 0.5em !important;
+        margin-bottom: 0.2em !important;
+    }
+}
+
+/* 确保其他标题也有合适的字体大小 - 优化版 */
 .post-content h3,
 .post-single h3,
 article h3 {
-    font-size: 18px !important;
-    line-height: 1.5 !important;
-    margin-bottom: 0.8em !important;
+    font-size: 22px !important;
+    line-height: 1.4 !important;
     margin-top: 1.2em !important;
-    font-family: var(--font-family) !important;
-    border-bottom: 1px solid var(--border) !important;
-    padding-bottom: 0.3em !important;
+    margin-bottom: 0.7em !important;
+    font-weight: 600 !important;
+    color: var(--primary) !important;
+    padding-left: 0 !important;
+}
+
+/* 单篇文章标题容器样式调整 */
+.post-single .post-content {
+    position: relative !important;
+}
+
+.post-single .post-content h1,
+.post-single .post-content h2,
+.post-single .post-content h3,
+.post-single .post-content h4,
+.post-single .post-content h5,
+.post-single .post-content h6 {
+    position: relative !important;
+    margin-left: 0 !important;
 }
 
 .post-content h4,
 .post-single h4,
 article h4 {
-    font-size: 16px !important;
+    font-size: 20px !important;
     line-height: 1.5 !important;
-    margin-bottom: 0.4em !important;
-    margin-top: 0.6em !important;
-    font-family: var(--font-family) !important;
+    margin-top: 1.1em !important;
+    margin-bottom: 0.6em !important;
+    font-weight: 500 !important;
+    color: var(--primary) !important;
 }
 
 .post-content h5,
 .post-single h5,
 article h5 {
-    font-size: 15px !important;
+    font-size: 19px !important;
     line-height: 1.5 !important;
-    margin-bottom: 0.3em !important;
-    margin-top: 0.5em !important;
-    font-family: var(--font-family) !important;
+    margin-top: 1em !important;
+    margin-bottom: 0.5em !important;
+    font-weight: 500 !important;
+    color: var(--secondary) !important;
 }
 
 .post-content h6,
 .post-single h6,
 article h6 {
-    font-size: 14px !important;
+    font-size: 18px !important;
     line-height: 1.5 !important;
-    margin-bottom: 0.3em !important;
-    margin-top: 0.5em !important;
-    font-family: var(--font-family) !important;
+    margin-top: 0.9em !important;
+    margin-bottom: 0.4em !important;
+    font-weight: 500 !important;
+    color: var(--secondary) !important;
 }
 
 /* 自定义样式：统一首页文章显示样式 */
 /* 重写 first-entry 样式，使其与 post-entry 完全一致 */
-
 .first-entry {
     /* 完全重写 first-entry 样式，覆盖主题默认样式 */
     position: relative !important;
-    display: block !important;
-    flex-direction: unset !important;
-    justify-content: unset !important;
-    min-height: unset !important;
-    margin: 0 0 var(--gap) 0 !important;
-    padding: var(--gap) !important;
+    margin-bottom: 20px !important;
+    padding: 20px !important;
     background: var(--entry) !important;
-    border-radius: var(--radius) !important;
-    transition: transform 0.1s !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
     border: 1px solid var(--border) !important;
+    min-height: 160px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.first-entry .entry-header {
+    flex-shrink: 0 !important;
+}
+
+.first-entry .entry-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+    overflow: hidden !important;
+}
+
+.first-entry .entry-content p {
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 4 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.first-entry .entry-footer {
+    flex-shrink: 0 !important;
+    margin-top: auto !important;
 }
 
 .first-entry:active {
@@ -412,39 +530,43 @@ article h6 {
 
 /* 重写 first-entry 标题样式 */
 .first-entry .entry-header {
-    overflow: unset !important;
-    display: block !important;
-    -webkit-box-orient: unset !important;
-    -webkit-line-clamp: unset !important;
+    margin-bottom: 10px !important;
 }
 
 .first-entry .entry-header h1,
 .first-entry .entry-header h2 {
     font-size: 24px !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
     margin: 0 !important;
+    padding: 0 !important;
+    color: var(--primary) !important;
+    font-weight: 600 !important;
+    -webkit-line-clamp: unset !important;
     font-family: var(--font-family) !important;
 }
 
 /* 重写 first-entry 内容样式 */
 .first-entry .entry-content {
-    margin: 8px 0 !important;
+    margin-bottom: 12px !important;
     color: var(--secondary) !important;
-    font-size: 14px !important;
     line-height: 1.6 !important;
-    overflow: hidden !important;
-    display: -webkit-box !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-line-clamp: 2 !important;
-    font-family: var(--font-family) !important;
+    font-size: 16px !important;
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+    overflow: visible !important;
     text-align: justify !important;
 }
 
 /* 重写 first-entry 底部信息样式 */
 .first-entry .entry-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-size: 14px !important;
     color: var(--secondary) !important;
-    font-size: 13px !important;
-    margin-top: 0 !important;
+    margin-top: 12px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid var(--border) !important;
     font-family: var(--font-family) !important;
 }
 
@@ -459,12 +581,53 @@ article h6 {
 
 /* 普通文章列表条目字体设置 */
 .post-entry,
-.post-entry .entry-header,
-.post-entry .entry-content,
-.post-entry .entry-footer,
-.post-entry h2,
-.post-entry p {
+.first-entry {
     font-family: var(--font-family) !important;
+}
+
+/* 统一文章条目高度和布局 */
+.post-entry {
+    min-height: 160px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    margin-bottom: 20px !important;
+    padding: 20px !important;
+    background: var(--entry) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid var(--border) !important;
+}
+
+.post-entry .entry-header {
+    flex-shrink: 0 !important;
+}
+
+.post-entry .entry-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+    overflow: hidden !important;
+}
+
+.post-entry .entry-content p {
+    margin: 0 !important;
+    line-height: 1.6 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 4 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.post-entry .entry-footer {
+    flex-shrink: 0 !important;
+    margin-top: auto !important;
 }
 
 /* 文章列表条目内容两端对齐 */
@@ -477,19 +640,28 @@ article h6 {
 .main-nav,
 .menu,
 header,
-.breadcrumbs,
-.page-header,
-.terms-tags,
-.profile,
-.social-icons {
+.breadcrumbs {
     font-family: var(--font-family) !important;
 }
 
 /* 标签和分类页面字体设置 */
 .terms-tags a,
-.tag,
-.category {
+.tag-cloud a,
+.tag-entry,
+.category-entry {
     font-family: var(--font-family) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* 分类页面悬停效果 */
+.category-entry:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.category-entry a:hover {
+    color: var(--primary) !important;
+    background: rgba(59, 130, 246, 0.1) !important;
 }
 
 /* 去除所有链接的下划线 */
@@ -497,45 +669,9 @@ a {
     text-decoration: none !important;
 }
 
-a:hover {
-    text-decoration: none !important;
-}
-
-a:focus {
-    text-decoration: none !important;
-}
-
-a:active {
-    text-decoration: none !important;
-}
-
-/* 导航菜单链接样式 */
-.main-nav a,
-.menu a,
-header a {
-    text-decoration: none !important;
-}
-
-.main-nav a:hover,
-.menu a:hover,
-header a:hover {
-    text-decoration: none !important;
-}
-
-/* 文章列表链接样式 */
-.post-entry a,
-.first-entry a {
-    text-decoration: none !important;
-}
-
-.post-entry a:hover,
-.first-entry a:hover {
-    text-decoration: none !important;
-}
-
 /* 设置主内容区域宽度 */
 main {
-    max-width: 850px !important;
+    max-width: 900px !important;
     width: 100% !important;
     margin: 0 auto !important;
 }
@@ -544,8 +680,130 @@ main {
 @media (max-width: 900px) {
     main {
         margin: 0 20px !important;
-        max-width: calc(850px - 40px) !important;
+        max-width: calc(900px - 40px) !important;
     }
+    
+    /* 小屏幕隐藏悬浮目录 */
+    .floating-toc {
+        display: none !important;
+    }
+    
+    .post-content-wrapper {
+        display: block !important;
+    }
+    
+    .post-content {
+        width: 100% !important;
+        max-width: 900px !important;
+        margin: 0 auto !important;
+    }
+}
+
+
+
+/* 文章内容布局 */
+.post-content-wrapper {
+    position: relative !important;
+    display: block !important;
+}
+
+.post-content {
+    width: 100% !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+/* 左侧悬浮目录样式 */
+.floating-toc {
+    position: fixed !important;
+    top: 100px !important;
+    left: 20px !important;
+    width: 250px !important;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: auto !important;
+    background: var(--entry) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+}
+
+.floating-toc .toc {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.floating-toc .toc details {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.floating-toc .toc summary {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--primary) !important;
+    margin-bottom: 10px !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+}
+
+.floating-toc .toc .inner {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+}
+
+.floating-toc .toc ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+.floating-toc .toc li {
+    margin: 5px 0 !important;
+    padding: 0 !important;
+}
+
+.floating-toc .toc a {
+    color: var(--secondary) !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    padding: 4px 8px !important;
+    margin: 2px 0 !important;
+    transition: all .3s ease !important;
+    border-radius: 4px !important;
+}
+
+.floating-toc .toc a:hover {
+    color: var(--primary) !important;
+    background: rgba(59, 130, 246, 0.1) !important;
+}
+
+.floating-toc .toc a.active {
+    color: var(--primary) !important;
+    background: rgba(59, 130, 246, 0.15) !important;
+    font-weight: 600 !important;
+    border-left: 3px solid var(--primary) !important;
+    padding-left: 12px !important;
+}
+
+.floating-toc .toc ul ul {
+    padding-left: 15px !important;
+    margin-top: 5px !important;
+}
+
+.floating-toc .toc ul ul a {
+    font-size: 15px !important;
+    color: var(--tertiary) !important;
 }
 
 /* 标签页面的标签字体大小调整 */
@@ -557,524 +815,421 @@ main {
 .tag-entry a {
     font-size: 16px !important;
     line-height: 1.6 !important;
+    transition: all 0.3s ease !important;
+}
+
+.terms-tags .tag:hover,
+.terms-tags a:hover,
+.tag-cloud .tag:hover,
+.tag-cloud a:hover,
+.tag-entry .tag-name:hover,
+.tag-entry a:hover {
+    color: var(--primary) !important;
+    background: rgba(59, 130, 246, 0.1) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* 标签页面的标签容器样式 */
 .terms-tags .tag-entry,
 .tag-cloud .tag-entry {
     font-size: 16px !important;
+    transition: all 0.3s ease !important;
+}
+
+.terms-tags .tag-entry:hover,
+.tag-cloud .tag-entry:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* 标签页面中的标签链接样式 */
 .terms-tags .tag-entry h3,
 .tag-cloud .tag-entry h3 {
     font-size: 16px !important;
+    line-height: 1.6 !important;
+    font-family: var(--font-family) !important;
     font-weight: normal !important;
-}
-
-/* 文章目录 (TOC) 左侧显示样式 - 优化版 */
-@media (min-width: 1200px) {
-    .post-single .post-content {
-        position: relative;
-    }
-    
-    .toc {
-        position: fixed !important;
-        left: 25px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        width: 280px !important;
-        max-height: 70vh !important;
-        overflow-y: auto !important;
-        background: var(--theme) !important;
-        backdrop-filter: blur(20px) saturate(180%) !important;
-        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-        border: 1px solid var(--border) !important;
-        border-radius: 16px !important;
-        padding: 20px !important;
-        box-shadow: 
-            0 10px 40px rgba(0, 0, 0, 0.1),
-            0 4px 20px rgba(0, 0, 0, 0.05),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-        z-index: 1000 !important;
-        font-size: 14px !important;
-        opacity: 0.92 !important;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        color: var(--primary) !important;
-        transform-style: preserve-3d !important;
-        font-family: var(--font-family) !important;
-    }
-    
-    .toc:hover {
-        opacity: 1 !important;
-        transform: translateY(-50%) scale(1.02) !important;
-        box-shadow: 
-            0 15px 50px rgba(0, 0, 0, 0.15),
-            0 6px 25px rgba(0, 0, 0, 0.08),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
-    }
-    
-    /* 美化滚动条 */
-    .toc::-webkit-scrollbar {
-        width: 6px !important;
-    }
-    
-         .toc::-webkit-scrollbar-track {
-         background: var(--code-bg) !important;
-         border-radius: 3px !important;
-     }
-    
-    .toc::-webkit-scrollbar-thumb {
-        background: var(--primary) !important;
-        border-radius: 3px !important;
-        transition: background 0.3s ease !important;
-    }
-    
-    .toc::-webkit-scrollbar-thumb:hover {
-        background: var(--accent) !important;
-    }
-    
-    .toc details {
-        margin: 0 !important;
-    }
-    
-    .toc summary {
-        font-weight: 700 !important;
-        font-size: 15px !important;
-        margin-bottom: 16px !important;
-        cursor: pointer !important;
-        color: var(--primary) !important;
-        display: flex !important;
-        align-items: center !important;
-        position: relative !important;
-        padding: 8px 0 !important;
-                 border-bottom: 1px solid var(--border) !important;
-        font-family: var(--font-family) !important;
-    }
-    
-    .toc summary::before {
-        content: "📖" !important;
-        margin-right: 8px !important;
-        font-size: 14px !important;
-    }
-    
-    .toc .inner {
-        max-height: none !important;
-    }
-    
-    .toc ul {
-        margin: 0 !important;
-        padding-left: 18px !important;
-        list-style: none !important;
-        position: relative !important;
-    }
-    
-    /* 添加层级指示线 */
-    .toc ul::before {
-        content: "" !important;
-        position: absolute !important;
-        left: 8px !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        width: 1px !important;
-                 background: linear-gradient(180deg, 
-             transparent 0%, 
-             var(--primary) 10%, 
-             var(--primary) 90%, 
-             transparent 100%) !important;
-         opacity: 0.3 !important;
-    }
-    
-    .toc ul li {
-        margin: 6px 0 !important;
-        line-height: 1.5 !important;
-        position: relative !important;
-    }
-    
-    /* 添加项目前的小圆点 */
-    .toc ul li::before {
-        content: "" !important;
-        position: absolute !important;
-        left: -10px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        width: 4px !important;
-        height: 4px !important;
-        background: var(--secondary) !important;
-        border-radius: 50% !important;
-        transition: all 0.3s ease !important;
-    }
-    
-    .toc ul li:hover::before {
-        background: var(--primary) !important;
-        transform: translateY(-50%) scale(1.5) !important;
-    }
-    
-    .toc ul li a {
-        color: var(--secondary) !important;
-        text-decoration: none !important;
-        display: block !important;
-        padding: 6px 12px !important;
-        border-radius: 8px !important;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        position: relative !important;
-        overflow: hidden !important;
-        font-weight: 400 !important; /* 设置默认字体粗细为正常，与活跃状态(900)形成对比 */
-        font-size: 1em !important; /* 设置默认字体大小 */
-        letter-spacing: 0 !important; /* 设置默认字符间距 */
-        font-family: var(--font-family) !important;
-    }
-    
-    /* 悬停效果 */
-    .toc ul li a::before {
-        content: "" !important;
-        position: absolute !important;
-        left: 0 !important;
-        top: 0 !important;
-        width: 0 !important;
-        height: 100% !important;
-                 background: linear-gradient(90deg, 
-             var(--primary), 
-             var(--primary)) !important;
-         opacity: 0.1 !important;
-        transition: width 0.3s ease !important;
-        z-index: -1 !important;
-    }
-    
-    .toc ul li a:hover {
-        color: var(--primary) !important;
-                 background: var(--code-bg) !important;
-         transform: translateX(6px) !important;
-         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-    }
-    
-    .toc ul li a:hover::before {
-        width: 100% !important;
-    }
-    
-    /* 移除主内容的左边距，让TOC悬浮不影响正文 */
-    .post-single .post-content {
-        margin-left: 0 !important;
-        max-width: 850px !important;
-    }
-}
-
-/* 中等屏幕上的TOC样式 - 优化版 */
-@media (min-width: 900px) and (max-width: 1199px) {
-    .toc {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        transform: none !important;
-        width: 100% !important;
-        max-height: none !important;
-        margin: 24px 0 !important;
-        background: var(--code-bg) !important;
-        border: 1px solid var(--border) !important;
-        border-radius: 12px !important;
-        padding: 20px !important;
-        opacity: 1 !important;
-        backdrop-filter: none !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
-        transition: all 0.3s ease !important;
-        font-family: var(--font-family) !important;
-    }
-    
-    .toc:hover {
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1) !important;
-        transform: translateY(-2px) !important;
-    }
-    
-    .toc summary::before {
-        content: "📚" !important;
-    }
-}
-
-/* 小屏幕上的TOC样式 - 优化版 */
-@media (max-width: 899px) {
-    .toc {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        transform: none !important;
-        width: 100% !important;
-        max-height: none !important;
-        margin: 20px 0 !important;
-        padding: 16px !important;
-        background: var(--code-bg) !important;
-        border: 1px solid var(--border) !important;
-        border-radius: 10px !important;
-        opacity: 1 !important;
-        backdrop-filter: none !important;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05) !important;
-        font-size: 13px !important;
-        font-family: var(--font-family) !important;
-    }
-    
-    .toc summary {
-        font-size: 14px !important;
-        margin-bottom: 12px !important;
-        font-family: var(--font-family) !important;
-    }
-    
-    .toc summary::before {
-        content: "📱" !important;
-        font-size: 12px !important;
-    }
-    
-    .toc ul li {
-        margin: 4px 0 !important;
-    }
-    
-    .toc ul li a {
-        padding: 4px 8px !important;
-        font-size: 13px !important;
-        font-family: var(--font-family) !important;
-    }
-}
-
-/* TOC 活跃状态和高亮样式 - 加粗字体版 */
-.toc ul li a.active {
-    color: var(--theme) !important;
-    background: var(--primary) !important;
-    font-weight: 900 !important; /* 加强字体粗细 */
-    font-size: 1.05em !important; /* 稍微增大字体 */
-    letter-spacing: 0.3px !important; /* 增加字符间距，增强可读性 */
-    transform: translateX(8px) scale(1.02) !important;
-    border-radius: 10px !important;
-    box-shadow: 
-        0 4px 16px rgba(0, 0, 0, 0.25),
-        0 2px 8px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
-    position: relative !important;
-    z-index: 1 !important;
-    border-left: 4px solid var(--theme) !important; /* 添加左侧边框作为额外标识 */
-}
-
-.toc ul li a.active::before {
-    width: 100% !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* 活跃项目的圆点样式 */
-.toc ul li:has(a.active)::before {
-    background: var(--theme) !important;
-    transform: translateY(-50%) scale(2) !important;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5) !important;
-}
-
-.toc ul li a.active:hover {
-    background: var(--primary) !important;
-    color: var(--theme) !important;
-    font-weight: 900 !important; /* 保持加粗字体 */
-    font-size: 1.05em !important; /* 保持稍大字体 */
-    letter-spacing: 0.3px !important; /* 保持字符间距 */
-    transform: translateX(10px) scale(1.03) !important;
-    box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.3),
-        0 3px 10px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-    border-left: 4px solid var(--theme) !important; /* 保持左侧边框 */
-}
-
-/* 阅读进度条样式 - 优化版 */
-.reading-progress {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 0% !important;
-    height: 4px !important;
-    background: linear-gradient(90deg, 
-        #3b82f6 0%, 
-        #8b5cf6 25%, 
-        #06b6d4 50%, 
-        #10b981 75%, 
-        #f59e0b 100%) !important;
-    box-shadow: 
-        0 2px 8px rgba(59, 130, 246, 0.3),
-        0 0 20px rgba(59, 130, 246, 0.1) !important;
-    z-index: 1001 !important;
-    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    opacity: 0.9 !important;
-}
-
-/* 进度条发光效果 */
-.reading-progress::after {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    right: 0 !important;
-    width: 30px !important;
-    height: 100% !important;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.6) 50%, 
-        transparent 100%) !important;
-    opacity: 0.8 !important;
-    animation: shimmer 2s infinite !important;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-30px); opacity: 0; }
-    50% { opacity: 0.8; }
-    100% { transform: translateX(30px); opacity: 0; }
-}
-
-/* 为目录项添加平滑过渡效果 */
-.toc ul li a {
     transition: all 0.3s ease !important;
 }
 
-/* 增强活跃状态的字体加粗效果 */
-.toc ul li a.active {
-    text-shadow: 0.5px 0 0 currentColor !important; /* 添加文字阴影增强加粗效果 */
+.terms-tags .tag-entry h3:hover,
+.tag-cloud .tag-entry h3:hover {
+    color: var(--primary) !important;
+    transform: translateY(-1px) !important;
 }
 
-/* 为活跃状态添加额外的字体加粗样式 */
-@supports (font-variation-settings: normal) {
-    .toc ul li a.active {
-        font-variation-settings: 'wght' 900 !important; /* 现代浏览器的可变字体支持 */
-    }
-}
-
-/* 确保在不同屏幕尺寸下都有明显的字体加粗效果 */
-@media (min-width: 900px) and (max-width: 1199px) {
-    .toc ul li a.active {
-        font-weight: 900 !important;
-        font-size: 1.05em !important;
-        letter-spacing: 0.3px !important;
-        text-shadow: 0.5px 0 0 currentColor !important;
-    }
-}
-
-@media (max-width: 899px) {
-    .toc ul li a.active {
-        font-weight: 900 !important;
-        font-size: 1.05em !important;
-        letter-spacing: 0.3px !important;
-        text-shadow: 0.5px 0 0 currentColor !important;
-    }
-}
-
-/* 段落间距优化 - 增强阅读体验 */
-.post-content p + p,
-.post-single p + p,
-article p + p {
-    margin-top: 1em !important;
-}
-
-
-
-/* 列表项间距优化 */
-.post-content ul li,
-.post-single ul li,
-article ul li,
-.post-content ol li,
-.post-single ol li,
-article ol li {
-    margin-bottom: 0.3em !important;
-}
-
-/* 表格间距优化 */
-.post-content table,
-.post-single table,
-article table {
-    margin: 1.5em 0 !important;
-    border-collapse: collapse !important;
+/* 首页文章列表的元信息布局优化 */
+.post-entry .entry-footer .post-meta-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
     width: 100% !important;
-}
-
-.post-content table th,
-.post-single table th,
-article table th,
-.post-content table td,
-.post-single table td,
-article table td {
-    padding: 0.8em !important;
-    border: 1px solid var(--border) !important;
-    text-align: left !important;
-}
-
-
-
-/* 水平分割线样式 */
-.post-content hr,
-.post-single hr,
-article hr {
-    margin: 2em 0 !important;
-    border: none !important;
-    height: 1px !important;
-    background: linear-gradient(90deg, transparent, var(--border), transparent) !important;
-}
-
-/* 图片说明文字间距 */
-.post-content figcaption,
-.post-single figcaption,
-article figcaption {
-    margin-top: 0.1em !important;
-    margin-bottom: 1em !important;
-    text-align: center !important;
-    font-size: 0.8em !important;
+    margin-top: 6px !important;
+    font-size: 12px !important;
     color: var(--secondary) !important;
-    font-style: normal !important;
+    font-family: var(--font-family) !important;
 }
 
-/* 覆盖highlight的表格样式，让代码块不使用表格布局 */
-.post-content .highlighttable,
-.post-single .highlighttable,
-article .highlighttable {
-    display: block !important;
-    table-layout: unset !important;
+.post-entry .entry-footer .post-meta-left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 !important;
 }
 
-
-
-.post-content .highlighttable tr,
-.post-single .highlighttable tr,
-article .highlighttable tr {
-    display: block !important;
+.post-entry .entry-footer .post-meta-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 1 !important;
 }
 
-.post-content .highlighttable td,
-.post-single .highlighttable td,
-article .highlighttable td {
-    display: block !important;
-    width: auto !important;
-    border: none !important;
+.post-entry .entry-footer .post-category {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 2px 8px !important;
+    background: var(--tertiary) !important;
+    color: var(--primary) !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid var(--border) !important;
+}
+
+.post-entry .entry-footer .post-category a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.post-entry .entry-footer .post-word-count {
+    margin-right: 12px !important;
+    color: var(--secondary) !important;
+    font-size: 12px !important;
+}
+
+.post-entry .entry-footer .post-date {
+    color: var(--secondary) !important;
+    font-size: 12px !important;
+    opacity: 0.8 !important;
+}
+
+/* 确保first-entry也有相同的样式 */
+.first-entry .entry-footer .post-meta-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 6px !important;
+    font-size: 12px !important;
+    color: var(--secondary) !important;
+    font-family: var(--font-family) !important;
+}
+
+.first-entry .entry-footer .post-meta-left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 !important;
+}
+
+.first-entry .entry-footer .post-meta-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 1 !important;
+}
+
+.first-entry .entry-footer .post-category {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 2px 8px !important;
+    background: var(--tertiary) !important;
+    color: var(--primary) !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid var(--border) !important;
+}
+
+.first-entry .entry-footer .post-category a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.first-entry .entry-footer .post-word-count {
+    margin-right: 12px !important;
+    color: var(--secondary) !important;
+    font-size: 12px !important;
+}
+
+.first-entry .entry-footer .post-date {
+    color: var(--secondary) !important;
+    font-size: 12px !important;
+    opacity: 0.8 !important;
+}
+
+/* 单篇文章的元信息样式 - 与首页保持一致 */
+.post-single .post-meta .post-meta-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+    font-size: 12px !important;
+    color: var(--secondary) !important;
+    font-family: var(--font-family) !important;
+}
+
+.post-single .post-meta .post-meta-left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 !important;
+}
+
+.post-single .post-meta .post-meta-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 1 !important;
+}
+
+.post-single .post-meta .post-category {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 2px 8px !important;
+    background: var(--tertiary) !important;
+    color: var(--primary) !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid var(--border) !important;
+}
+
+.post-single .post-meta .post-category a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.post-single .post-meta .post-word-count {
+    margin-right: 12px !important;
+    color: var(--secondary) !important;
+    font-size: 12px !important;
+}
+
+.post-single .post-meta .post-date {
+    color: var(--secondary) !important;
+    font-size: 12px !important;
+    opacity: 0.8 !important;
+}
+
+/* 时间轴页面的元信息样式 - 与首页保持一致 */
+.archive-entry .archive-meta .post-meta-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 4px !important;
+    font-size: 12px !important;
+    color: var(--secondary) !important;
+    font-family: var(--font-family) !important;
+}
+
+.archive-entry .archive-meta .post-meta-left {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 !important;
+}
+
+.archive-entry .archive-meta .post-meta-right {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 1 !important;
+}
+
+.archive-entry .archive-meta .post-category {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 1px 6px !important;
+    background: var(--tertiary) !important;
+    color: var(--primary) !important;
+    border-radius: 10px !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid var(--border) !important;
+}
+
+.archive-entry .archive-meta .post-category a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.archive-entry .archive-meta .post-word-count {
+    margin-right: 8px !important;
+    color: var(--secondary) !important;
+    font-size: 11px !important;
+}
+
+.archive-entry .archive-meta .post-date {
+    color: var(--secondary) !important;
+    font-size: 11px !important;
+    opacity: 0.8 !important;
+}
+
+/* 时间轴页面整体样式优化 */
+.archive-entry {
+    margin-bottom: 20px !important;
+    padding: 16px 0 !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.archive-entry:last-child {
+    border-bottom: none !important;
+}
+
+.archive-entry-title {
+    margin-bottom: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.archive-entry-date {
+    color: var(--secondary) !important;
+    font-size: 14px !important;
+    min-width: 120px !important;
+    font-family: var(--font-family) !important;
+}
+
+.archive-entry-title-text {
+    flex: 1 !important;
+    color: var(--primary) !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.archive-entry-title a {
+    color: var(--primary) !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+/* 确保时间轴页面的元信息容器有足够的空间 */
+.archive-meta {
+    margin-top: 6px !important;
     padding: 0 !important;
+}
+
+/* 时间轴页面响应式样式 */
+@media (max-width: 768px) {
+    .archive-entry {
+        margin-bottom: 16px !important;
+        padding: 12px 0 !important;
+    }
+    
+    .archive-entry .archive-meta .post-meta-container {
+        font-size: 11px !important;
+        margin-top: 3px !important;
+    }
+    
+    .archive-entry .archive-meta .post-category {
+        padding: 1px 4px !important;
+        font-size: 10px !important;
+        border-radius: 6px !important;
+    }
+    
+    .archive-entry .archive-meta .post-word-count,
+    .archive-entry .archive-meta .post-date {
+        font-size: 10px !important;
+    }
+    
+    .archive-entry-title {
+        font-size: 15px !important;
+        gap: 10px !important;
+    }
+    
+    .archive-entry-date {
+        font-size: 13px !important;
+        min-width: 110px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .archive-entry .archive-meta .post-meta-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+    }
+    
+    .archive-entry .archive-meta .post-meta-right {
+        justify-content: flex-start !important;
+    }
+    
+    .archive-entry .archive-meta .post-word-count {
+        margin-right: 8px !important;
+    }
+    
+    .archive-entry-title {
+        font-size: 14px !important;
+        gap: 8px !important;
+    }
+    
+    .archive-entry-date {
+        font-size: 12px !important;
+        min-width: 100px !important;
+    }
+}
+
+/* 首页文章统计信息样式 - 文章列表顶部右侧 */
+.posts-header {
+    margin-bottom: 20px !important;
+    overflow: hidden !important;
+    clear: both !important;
+}
+
+.home-stats-simple {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    float: right !important;
     margin: 0 !important;
+    font-size: 14px !important;
+    color: var(--secondary) !important;
+    font-family: var(--font-family) !important;
+    background: var(--tertiary) !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--border) !important;
+    opacity: 0.9 !important;
+    transition: all 0.3s ease !important;
+    display: inline-block !important;
 }
 
-.post-content .highlighttable td:first-child,
-.post-single .highlighttable td:first-child,
-article .highlighttable td:first-child {
-    width: auto !important;
-    background: none !important;
-    border: none !important;
+/* 确保主内容区域有相对定位 */
+main {
+    position: relative !important;
 }
 
-.post-content .highlighttable td .linenodiv,
-.post-single .highlighttable td .linenodiv,
-article .highlighttable td .linenodiv {
-    display: none !important;
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .home-stats-simple {
+        font-size: 13px !important;
+        padding: 6px 10px !important;
+    }
 }
 
-.post-content .highlighttable td .highlight,
-.post-single .highlighttable td .highlight,
-article .highlighttable td .highlight {
-    margin: 0 !important;
-    padding: 0 !important;
-    background: none !important;
+@media (max-width: 480px) {
+    .home-stats-simple {
+        top: 10px !important;
+        right: 10px !important;
+        font-size: 12px !important;
+        padding: 5px 8px !important;
+    }
 }
-
-.post-content .highlighttable td .highlight pre,
-.post-single .highlighttable td .highlight pre,
-article .highlighttable td .highlight pre {
-    margin: 0 !important;
-    padding: 0 !important;
-    background: none !important;
-}
-
-
-
-

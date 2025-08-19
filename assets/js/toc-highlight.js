@@ -1,139 +1,174 @@
-// 文章目录高亮和阅读进度条功能
-(function() {
-    'use strict';
+// 目录动态高亮和滚动跟随功能
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('TOC highlight script loaded');
     
-    // 等待DOM加载完成
-    document.addEventListener('DOMContentLoaded', function() {
-        initTocHighlight();
-        initReadingProgress();
-    });
-    
-    // 初始化目录高亮功能
-    function initTocHighlight() {
-        const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
-        const headings = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]');
+    // 等待一小段时间确保DOM完全加载
+    setTimeout(() => {
+        // 获取所有标题元素
+        const headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+        const tocLinks = document.querySelectorAll('.floating-toc a[href^="#"]');
         
-        if (tocLinks.length === 0 || headings.length === 0) {
+        console.log(`Found ${headings.length} headings and ${tocLinks.length} TOC links`);
+        
+        if (headings.length === 0 || tocLinks.length === 0) {
+            console.log('No headings or TOC links found');
             return;
         }
-        
-        // 创建 Intersection Observer 来监听标题的可见性
-        const observerOptions = {
-            root: null,
-            rootMargin: '-80px 0px -80% 0px', // 考虑导航栏高度和只在顶部20%时触发
-            threshold: 0
-        };
-        
-        let activeId = '';
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    activeId = entry.target.id;
-                    updateActiveTocLink(activeId);
-                }
-            });
-        }, observerOptions);
-        
-        // 观察所有标题
-        headings.forEach((heading) => {
-            observer.observe(heading);
+
+        // 为每个标题添加ID（如果没有的话）
+        headings.forEach((heading, index) => {
+            if (!heading.id) {
+                heading.id = `heading-${index}`;
+            }
         });
+
+        // 创建标题ID到目录链接的映射
+        const headingToLinkMap = new Map();
         
-        // 处理页面滚动到底部的情况
-        window.addEventListener('scroll', throttle(() => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const clientHeight = window.innerHeight;
-            
-            // 如果滚动到底部，高亮最后一个标题
-            if (scrollTop + clientHeight >= scrollHeight - 100) {
-                const lastHeading = headings[headings.length - 1];
-                if (lastHeading) {
-                    activeId = lastHeading.id;
-                    updateActiveTocLink(activeId);
+        // 更新目录链接的href并创建映射
+        tocLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const targetId = decodeURIComponent(href.substring(1));
+                // 查找匹配的标题元素
+                let targetHeading = document.getElementById(targetId);
+                if (!targetHeading) {
+                    // 如果直接匹配失败，尝试查找包含该文本的标题
+                    headings.forEach(heading => {
+                        if (heading.textContent.trim() === targetId) {
+                            targetHeading = heading;
+                        }
+                    });
+                }
+                if (targetHeading) {
+                    link.setAttribute('href', `#${targetHeading.id}`);
+                    headingToLinkMap.set(targetHeading.id, link);
+                    console.log(`Mapped heading "${targetHeading.textContent.trim()}" to TOC link`);
+                } else {
+                    console.log(`Could not find heading for: ${targetId}`);
                 }
             }
-        }, 100));
-        
-        // 点击目录链接时的平滑滚动
-        tocLinks.forEach((link) => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
+        });
+
+        // 滚动监听函数
+        function updateActiveTocLink() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            
+            let activeHeading = null;
+            const offset = 100; // 检测偏移量
+
+            // 方法1：找到当前在视口顶部附近的标题
+            for (let i = 0; i < headings.length; i++) {
+                const heading = headings[i];
+                const rect = heading.getBoundingClientRect();
                 
-                if (targetElement) {
-                    const offsetTop = targetElement.offsetTop - 100; // 考虑导航栏高度
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                // 如果标题在视口顶部附近（考虑偏移量）
+                if (rect.top <= offset && rect.bottom > 0) {
+                    activeHeading = heading;
+                    break;
+                }
+            }
+
+            // 方法2：如果没有找到，找到第一个在视口内的标题
+            if (!activeHeading) {
+                for (let i = 0; i < headings.length; i++) {
+                    const heading = headings[i];
+                    const rect = heading.getBoundingClientRect();
                     
-                    // 立即更新活跃状态
-                    activeId = targetId;
-                    updateActiveTocLink(activeId);
+                    // 如果标题在视口内
+                    if (rect.top > 0 && rect.top < windowHeight) {
+                        activeHeading = heading;
+                        break;
+                    }
+                }
+            }
+
+            // 方法3：如果还是没有找到，找到最后一个已经离开视口顶部的标题
+            if (!activeHeading) {
+                for (let i = headings.length - 1; i >= 0; i--) {
+                    const heading = headings[i];
+                    const rect = heading.getBoundingClientRect();
+                    
+                    // 如果标题已经离开视口顶部
+                    if (rect.top <= 0) {
+                        activeHeading = heading;
+                        break;
+                    }
+                }
+            }
+
+            // 方法4：最后的备用方案，使用第一个标题
+            if (!activeHeading && headings.length > 0) {
+                activeHeading = headings[0];
+            }
+
+            // 更新目录链接的激活状态
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            if (activeHeading && headingToLinkMap.has(activeHeading.id)) {
+                const activeLink = headingToLinkMap.get(activeHeading.id);
+                activeLink.classList.add('active');
+                console.log(`Activated TOC link for heading: "${activeHeading.textContent.trim()}" (ID: ${activeHeading.id}) at scroll position: ${scrollTop}`);
+                
+                // 滚动目录到活动项
+                const tocContainer = document.querySelector('.floating-toc');
+                if (tocContainer) {
+                    const linkRect = activeLink.getBoundingClientRect();
+                    const containerRect = tocContainer.getBoundingClientRect();
+                    
+                    // 检查链接是否在容器可视区域内
+                    if (linkRect.top < containerRect.top || linkRect.bottom > containerRect.bottom) {
+                        // 使用更平滑的滚动
+                        tocContainer.scrollTo({
+                            top: tocContainer.scrollTop + (linkRect.top - containerRect.top) - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            } else if (activeHeading) {
+                console.log(`Found active heading: "${activeHeading.textContent.trim()}" but no TOC link mapped`);
+            } else {
+                console.log('No active heading found');
+            }
+        }
+
+        // 添加滚动事件监听
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateActiveTocLink();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick, { passive: true });
+        
+        // 初始调用
+        updateActiveTocLink();
+
+        // 点击目录链接时的平滑滚动
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 100; // 留出一些顶部空间
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
-        
-        // 更新活跃的目录链接
-        function updateActiveTocLink(id) {
-            tocLinks.forEach((link) => {
-                const isActive = link.getAttribute('href') === '#' + id;
-                
-                // 移除或添加活跃状态
-                if (isActive) {
-                    link.classList.add('active');
-                    // 添加额外的视觉提示
-                    link.style.fontWeight = '900';
-                    link.style.fontSize = '1.05em';
-                    link.style.letterSpacing = '0.3px';
-                } else {
-                    link.classList.remove('active');
-                    // 移除内联样式，回到默认状态
-                    link.style.fontWeight = '';
-                    link.style.fontSize = '';
-                    link.style.letterSpacing = '';
-                }
-            });
-        }
-    }
-    
-    // 初始化阅读进度条
-    function initReadingProgress() {
-        // 创建进度条元素
-        const progressBar = document.createElement('div');
-        progressBar.className = 'reading-progress';
-        document.body.appendChild(progressBar);
-        
-        // 更新进度条
-        const updateProgress = () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const clientHeight = window.innerHeight;
-            const scrolled = (scrollTop / (scrollHeight - clientHeight)) * 100;
-            
-            progressBar.style.width = Math.min(scrolled, 100) + '%';
-        };
-        
-        // 监听滚动事件
-        window.addEventListener('scroll', throttle(updateProgress, 16)); // 60fps
-        
-        // 初始化进度
-        updateProgress();
-    }
-    
-    // 节流函数，用于优化性能
-    function throttle(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
-})();
+    }, 100); // 等待100ms确保DOM完全加载
+});

@@ -1,13 +1,16 @@
 ---
 title: " 图片处理工具 - 重命名、调整尺寸并清除EXIF"
-date: 2025-08-12T17:41:27+08:00
+date: 2024-08-12T17:41:27+08:00
 draft: false
 author: "OneCai"
-tags: ["图片修改"]
-categories: ["DIY工具"]
-summary: ""
+tags: ["图片处理", "Python", "工具开发"]
+categories: ["技术分享"]
+summary: "用Python开发的图片批量处理工具，支持智能调整尺寸、清除EXIF信息和批量重命名功能。"
 description: ""
 keywords: [""]
+ShowToc: true
+TocOpen: true
+
 ---
 
 从相册导入了几张图片，发现里面有设备信息之类的个人信息，网上找了几个工具，有的需要付费，有些干脆不能使用，提交cursor这个需求，用python实现了两个功能，一个是删除隐私信息，一个是调整图片宽度。
